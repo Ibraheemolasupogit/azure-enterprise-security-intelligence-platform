@@ -5,8 +5,9 @@ import pprint
 
 from security_intelligence.config import load_yaml_config
 from security_intelligence.ingestion.pipeline import ingest_telemetry
-from security_intelligence.paths import CONFIG_DIR, DATA_DIR
+from security_intelligence.paths import CONFIG_DIR, DATA_DIR, OUTPUT_DIR, REPORTS_DIR
 from security_intelligence.telemetry.generator import generate_telemetry
+from security_intelligence.validation.validator import validate_telemetry
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -71,6 +72,25 @@ def build_parser() -> argparse.ArgumentParser:
         default="outputs/ingestion_summary.json",
         help="Path where the ingestion summary JSON will be written.",
     )
+    validate_parser = subparsers.add_parser(
+        "validate-telemetry",
+        help="Validate processed telemetry CSV files and write data quality evidence.",
+    )
+    validate_parser.add_argument(
+        "--input-dir",
+        default=str(DATA_DIR / "processed"),
+        help="Directory containing processed telemetry CSV files.",
+    )
+    validate_parser.add_argument(
+        "--summary-path",
+        default=str(OUTPUT_DIR / "data_quality_summary.json"),
+        help="Path where the data quality summary JSON will be written.",
+    )
+    validate_parser.add_argument(
+        "--report-path",
+        default=str(REPORTS_DIR / "data_quality_report.md"),
+        help="Path where the Markdown data quality report will be written.",
+    )
 
     return parser
 
@@ -111,6 +131,21 @@ def main(argv: list[str] | None = None) -> int:
         for dataset in summary["datasets"]:
             print(f"- {dataset['dataset_name']}: {dataset['record_count']} records")
         print(f"Total records ingested: {summary['total_records_ingested']}")
+        return 0
+
+    if args.command == "validate-telemetry":
+        summary = validate_telemetry(
+            input_dir=args.input_dir,
+            summary_path=args.summary_path,
+            report_path=args.report_path,
+        )
+        print("Telemetry validation complete:")
+        for dataset in summary["datasets_validated"]:
+            print(
+                f"- {dataset['dataset_name']}: {dataset['status']} "
+                f"({dataset['data_quality_score']:.1f}/100)"
+            )
+        print(f"Overall data quality score: {summary['overall_data_quality_score']:.1f}/100")
         return 0
 
     parser.error(f"Unsupported command: {args.command}")

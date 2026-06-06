@@ -42,3 +42,19 @@ telemetry_generation:
     - application_events.jsonl
     - security_alerts.jsonl
     - cloud_activity.jsonl
+
+validation:
+  input_dir: data/processed
+  summary_path: outputs/data_quality_summary.json
+  report_path: reports/data_quality_report.md
+  allowed_severities:
+    - low
+    - medium
+    - high
+    - critical
+  allowed_risk_hints:
+    - normal
+    - low
+    - medium
+    - high
+    - critical

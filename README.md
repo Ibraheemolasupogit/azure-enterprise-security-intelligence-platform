@@ -64,7 +64,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | 1 | Scaffold | Complete |
 | 2 | Synthetic telemetry | Complete |
 | 3 | Ingestion pipeline | Complete |
-| 4 | Validation and data quality | Planned |
+| 4 | Validation and data quality | Complete |
 | 5 | Threat detection rules | Planned |
 | 6 | Identity governance checks | Planned |
 | 7 | Risk scoring and analytics | Planned |
@@ -106,6 +106,23 @@ python -m security_intelligence.cli ingest-telemetry --input-dir data/raw --outp
 
 The processed CSV files are designed for downstream validation, detection engineering, identity governance checks, risk scoring, dashboards, and investigation reports in later milestones.
 
+## Validation And Data Quality
+
+Milestone 4 adds a local validation layer for the processed telemetry CSV files in `data/processed/`. It checks file availability, empty files, required columns, missing IDs, duplicate IDs, timestamp parseability, severity values, risk hint values, and ingestion metadata columns.
+
+Run validation after generating and ingesting telemetry:
+
+```bash
+python -m security_intelligence.cli validate-telemetry --input-dir data/processed
+```
+
+Validation writes two evidence outputs:
+
+- `outputs/data_quality_summary.json`: machine-readable validation results, dataset scores, warnings, failures, and overall data quality score
+- `reports/data_quality_report.md`: human-readable evidence report with an executive summary, dataset table, findings, score, and recommended next actions
+
+The validation stage keeps the platform ready for downstream detection, identity governance, risk scoring, reporting, and auditability without connecting to Azure or using real data.
+
 ## Local Development
 
 Install the package in editable mode with development dependencies:
@@ -136,6 +153,12 @@ Ingest synthetic telemetry:
 
 ```bash
 security-intelligence ingest-telemetry --input-dir data/raw --output-dir data/processed
+```
+
+Validate processed telemetry:
+
+```bash
+security-intelligence validate-telemetry --input-dir data/processed
 ```
 
 Run tests:

@@ -22,7 +22,7 @@ Status: Complete
 
 Add schema checks, required field validation, quality reporting, and reliability checks for local datasets.
 
-Status: Planned
+Status: Complete
 
 ## Milestone 5 — Threat Detection Rules
 

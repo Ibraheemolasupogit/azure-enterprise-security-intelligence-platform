@@ -38,7 +38,15 @@ This keeps Milestone 3 focused on local ingestion only. Later milestones will us
 
 ## Validation Layer
 
-The validation layer will check data quality, required fields, expected values, timestamps, and schema consistency. It will help ensure detection rules, identity checks, risk scoring, and evidence generation operate on trustworthy inputs.
+The validation layer checks the processed CSV files in `data/processed/` before they are used by downstream analytics. It validates file availability, non-empty datasets, required columns, required identifier values, duplicate IDs, timestamp parseability, allowed severity values, allowed risk hint values, and ingestion metadata fields.
+
+The local flow now moves through three evidence-producing stages:
+
+1. Raw synthetic JSONL files in `data/raw/`
+2. Processed CSV files in `data/processed/`
+3. Validation evidence in `outputs/data_quality_summary.json` and `reports/data_quality_report.md`
+
+Each dataset receives per-rule validation results, warning and failure lists, and a data quality score from 0 to 100. The platform also calculates an overall data quality score. This gives later milestones a traceable quality gate before detection rules, identity governance checks, risk scoring, monitoring evidence, and reporting.
 
 ## Detection And Risk Layer
 
