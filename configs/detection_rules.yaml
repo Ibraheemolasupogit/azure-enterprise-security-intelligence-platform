@@ -1,32 +1,61 @@
 detection_rules:
-  - id: DET-001
-    name: Impossible travel
-    status: placeholder
+  - rule_id: DET-001
+    rule_name: Impossible travel
+    enabled: true
     severity: high
     description: Identify sign-ins from geographically distant locations within an unrealistic time window.
+    mitre_tactic: Initial Access
+    mitre_technique: Valid Accounts
+    window_minutes: 120
     mapped_service: Microsoft Sentinel
-  - id: DET-002
-    name: Suspicious login
-    status: placeholder
+  - rule_id: DET-002
+    rule_name: Repeated failed login
+    enabled: true
     severity: medium
-    description: Identify login activity with unusual timing, device, location, or authentication context.
+    description: Identify multiple failed login attempts for the same user within a short time window.
+    mitre_tactic: Credential Access
+    mitre_technique: Brute Force
+    threshold: 3
+    window_minutes: 60
     mapped_service: Microsoft Sentinel
-  - id: DET-003
-    name: Privilege escalation
-    status: placeholder
+  - rule_id: DET-003
+    rule_name: Privileged role activation
+    enabled: true
     severity: high
-    description: Identify suspicious elevation into privileged roles or administrative scopes.
+    description: Identify privileged role assignment or activation events.
+    mitre_tactic: Privilege Escalation
+    mitre_technique: Account Manipulation
     mapped_service: Microsoft Entra ID
-  - id: DET-004
-    name: Lateral movement
-    status: placeholder
+  - rule_id: DET-004
+    rule_name: Suspicious PowerShell execution
+    enabled: true
     severity: high
-    description: Identify patterns that may indicate movement across hosts, users, or cloud resources.
+    description: Identify PowerShell execution or suspicious process telemetry.
+    mitre_tactic: Execution
+    mitre_technique: PowerShell
     mapped_service: Microsoft Defender XDR
-  - id: DET-005
-    name: Dormant privileged account
-    status: placeholder
+  - rule_id: DET-005
+    rule_name: Malware detected
+    enabled: true
+    severity: critical
+    description: Identify malware detections from endpoint events or alert telemetry.
+    mitre_tactic: Execution
+    mitre_technique: User Execution
+    mapped_service: Microsoft Defender XDR
+  - rule_id: DET-006
+    rule_name: Suspicious cloud control-plane change
+    enabled: true
+    severity: high
+    description: Identify high-risk cloud control-plane changes and sensitive access operations.
+    mitre_tactic: Defense Evasion
+    mitre_technique: Cloud Service Dashboard
+    mapped_service: Microsoft Sentinel
+  - rule_id: DET-007
+    rule_name: Bulk application export
+    enabled: true
     severity: medium
-    description: Identify privileged accounts with low activity or stale access patterns.
-    mapped_service: Microsoft Entra ID
+    description: Identify bulk export or risky large file download activity in SaaS applications.
+    mitre_tactic: Collection
+    mitre_technique: Data from Information Repositories
+    mapped_service: Microsoft Sentinel
 

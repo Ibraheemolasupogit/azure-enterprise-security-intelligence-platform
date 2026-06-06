@@ -4,6 +4,7 @@ import argparse
 import pprint
 
 from security_intelligence.config import load_yaml_config
+from security_intelligence.detections.engine import run_detections
 from security_intelligence.ingestion.pipeline import ingest_telemetry
 from security_intelligence.paths import CONFIG_DIR, DATA_DIR, OUTPUT_DIR, REPORTS_DIR
 from security_intelligence.telemetry.generator import generate_telemetry
@@ -91,6 +92,25 @@ def build_parser() -> argparse.ArgumentParser:
         default=str(REPORTS_DIR / "data_quality_report.md"),
         help="Path where the Markdown data quality report will be written.",
     )
+    detections_parser = subparsers.add_parser(
+        "run-detections",
+        help="Run deterministic threat detection rules against processed telemetry.",
+    )
+    detections_parser.add_argument(
+        "--input-dir",
+        default=str(DATA_DIR / "processed"),
+        help="Directory containing processed telemetry CSV files.",
+    )
+    detections_parser.add_argument(
+        "--output-path",
+        default=str(OUTPUT_DIR / "security_findings.json"),
+        help="Path where machine-readable security findings JSON will be written.",
+    )
+    detections_parser.add_argument(
+        "--report-path",
+        default=str(REPORTS_DIR / "security_findings_report.md"),
+        help="Path where the Markdown security findings report will be written.",
+    )
 
     return parser
 
@@ -146,6 +166,18 @@ def main(argv: list[str] | None = None) -> int:
                 f"({dataset['data_quality_score']:.1f}/100)"
             )
         print(f"Overall data quality score: {summary['overall_data_quality_score']:.1f}/100")
+        return 0
+
+    if args.command == "run-detections":
+        summary = run_detections(
+            input_dir=args.input_dir,
+            output_path=args.output_path,
+            report_path=args.report_path,
+        )
+        print("Threat detections complete:")
+        print(f"Total findings: {summary['total_findings']}")
+        for severity, count in summary["findings_by_severity"].items():
+            print(f"- {severity}: {count}")
         return 0
 
     parser.error(f"Unsupported command: {args.command}")

@@ -28,7 +28,7 @@ Status: Complete
 
 Implement local rule execution for suspicious login, impossible travel, privilege escalation, lateral movement, and dormant privileged account scenarios.
 
-Status: Planned
+Status: Complete
 
 ## Milestone 6 — Identity Governance Checks
 

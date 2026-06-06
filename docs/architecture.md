@@ -48,9 +48,22 @@ The local flow now moves through three evidence-producing stages:
 
 Each dataset receives per-rule validation results, warning and failure lists, and a data quality score from 0 to 100. The platform also calculates an overall data quality score. This gives later milestones a traceable quality gate before detection rules, identity governance checks, risk scoring, monitoring evidence, and reporting.
 
-## Detection And Risk Layer
+## Detection Rules Layer
 
-The detection and risk layer will evaluate local rules for suspicious activity, identity governance concerns, and security posture signals. Future milestones will add scoring and analytics patterns that prepare the project for machine learning without implementing models in the scaffold milestone.
+The detection rules layer reads validated processed CSV files and applies deterministic security rules defined in code and configured through `configs/detection_rules.yaml`. It generates structured findings with severity, confidence, entity context, source event IDs, evidence, recommended actions, and MITRE ATT&CK tactic and technique mappings.
+
+The current local flow is:
+
+1. Generate synthetic JSONL telemetry in `data/raw/`
+2. Ingest raw JSONL into processed CSV files in `data/processed/`
+3. Validate processed CSV files and write data quality evidence
+4. Run deterministic detections and write `outputs/security_findings.json` plus `reports/security_findings_report.md`
+
+The detection layer covers impossible travel, repeated failed login activity, privileged role activation, suspicious PowerShell execution, malware detections, suspicious cloud control-plane changes, and bulk application exports. It does not perform risk scoring, identity governance checks, ML, or GenAI workflows.
+
+## Risk Layer
+
+The future risk layer will score and prioritize validated telemetry and detection findings. That work is intentionally deferred until later milestones.
 
 ## Reporting Layer
 

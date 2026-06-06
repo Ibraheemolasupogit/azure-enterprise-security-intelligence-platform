@@ -65,7 +65,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | 2 | Synthetic telemetry | Complete |
 | 3 | Ingestion pipeline | Complete |
 | 4 | Validation and data quality | Complete |
-| 5 | Threat detection rules | Planned |
+| 5 | Threat detection rules | Complete |
 | 6 | Identity governance checks | Planned |
 | 7 | Risk scoring and analytics | Planned |
 | 8 | Monitoring and operational evidence | Planned |
@@ -123,6 +123,23 @@ Validation writes two evidence outputs:
 
 The validation stage keeps the platform ready for downstream detection, identity governance, risk scoring, reporting, and auditability without connecting to Azure or using real data.
 
+## Threat Detection Rules
+
+Milestone 5 adds deterministic threat detection rules that run against the processed telemetry CSV files. The rules detect impossible travel, repeated failed logins, privileged role activation, suspicious PowerShell execution, malware detections, suspicious cloud control-plane changes, and bulk application exports.
+
+Run detections after generating and ingesting telemetry:
+
+```bash
+python -m security_intelligence.cli run-detections --input-dir data/processed
+```
+
+Detection outputs include:
+
+- `outputs/security_findings.json`: machine-readable findings, rule metadata, MITRE ATT&CK mapping, evidence, and severity summaries
+- `reports/security_findings_report.md`: human-readable findings report with executive summary, top findings, MITRE coverage, and recommended next actions
+
+Each finding includes MITRE ATT&CK tactic and technique fields where appropriate. The detection layer is deterministic, local-first, and based only on synthetic telemetry.
+
 ## Local Development
 
 Install the package in editable mode with development dependencies:
@@ -159,6 +176,12 @@ Validate processed telemetry:
 
 ```bash
 security-intelligence validate-telemetry --input-dir data/processed
+```
+
+Run deterministic detections:
+
+```bash
+security-intelligence run-detections --input-dir data/processed
 ```
 
 Run tests:
