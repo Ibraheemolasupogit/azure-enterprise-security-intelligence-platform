@@ -1,0 +1,27 @@
+compliance_controls:
+  - id: CTRL-001
+    domain: identity governance
+    name: Privileged access governance
+    status: placeholder
+    evidence_expected: privileged role inventory and review results
+  - id: CTRL-002
+    domain: logging and monitoring
+    name: Security telemetry coverage
+    status: placeholder
+    evidence_expected: telemetry source inventory and monitoring outputs
+  - id: CTRL-003
+    domain: incident response
+    name: Investigation readiness
+    status: placeholder
+    evidence_expected: detection findings and investigation report summaries
+  - id: CTRL-004
+    domain: access review
+    name: Periodic access validation
+    status: placeholder
+    evidence_expected: access review findings and exception records
+  - id: CTRL-005
+    domain: evidence generation
+    name: Compliance evidence package
+    status: placeholder
+    evidence_expected: generated control evidence and dashboard-ready exports
+

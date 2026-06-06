@@ -1,0 +1,32 @@
+project:
+  name: Azure Enterprise Security Intelligence Platform
+  environment: local
+  description: Local-first scaffold for Azure-aligned enterprise security analytics workflows.
+
+azure_services_mapping:
+  microsoft_sentinel: detection engineering and investigation workflows
+  microsoft_entra_id: identity governance and access posture signals
+  microsoft_defender_xdr: endpoint and incident context mapping
+  azure_data_explorer: analytics query layer for future telemetry exploration
+  azure_data_lake_storage: scalable storage pattern for raw and processed telemetry
+  azure_machine_learning: future anomaly detection and risk scoring workflows
+  azure_ai_foundry: future GenAI-assisted investigation copilot workflows
+  azure_monitor: operational monitoring and evidence outputs
+  power_bi: dashboard-ready reporting exports
+  azure_key_vault: future secure secret and configuration management
+
+input_datasets:
+  future_expected:
+    - sign_in_logs
+    - audit_logs
+    - endpoint_alerts
+    - network_events
+    - identity_inventory
+    - privileged_role_assignments
+
+output_paths:
+  processed_data: data/processed
+  monitoring_outputs: outputs
+  investigation_reports: reports
+  dashboard_exports: outputs/dashboard
+

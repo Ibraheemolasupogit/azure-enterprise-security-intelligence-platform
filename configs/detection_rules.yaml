@@ -1,0 +1,32 @@
+detection_rules:
+  - id: DET-001
+    name: Impossible travel
+    status: placeholder
+    severity: high
+    description: Identify sign-ins from geographically distant locations within an unrealistic time window.
+    mapped_service: Microsoft Sentinel
+  - id: DET-002
+    name: Suspicious login
+    status: placeholder
+    severity: medium
+    description: Identify login activity with unusual timing, device, location, or authentication context.
+    mapped_service: Microsoft Sentinel
+  - id: DET-003
+    name: Privilege escalation
+    status: placeholder
+    severity: high
+    description: Identify suspicious elevation into privileged roles or administrative scopes.
+    mapped_service: Microsoft Entra ID
+  - id: DET-004
+    name: Lateral movement
+    status: placeholder
+    severity: high
+    description: Identify patterns that may indicate movement across hosts, users, or cloud resources.
+    mapped_service: Microsoft Defender XDR
+  - id: DET-005
+    name: Dormant privileged account
+    status: placeholder
+    severity: medium
+    description: Identify privileged accounts with low activity or stale access patterns.
+    mapped_service: Microsoft Entra ID
+
