@@ -100,6 +100,23 @@ The full local flow is:
 
 Monitoring writes `outputs/operational_health_summary.json`, `outputs/evidence_manifest.json`, and `reports/operational_evidence_report.md`. These artifacts simulate Azure Monitor and Microsoft Sentinel-style operational evidence while remaining local-first and synthetic.
 
+## GenAI Investigation Copilot Simulation Layer
+
+The copilot simulation layer reads security findings, identity governance findings, risk scores, operational health, and the evidence manifest. It builds a structured investigation context and generates deterministic Markdown reports using local prompt templates and rule-based response generation.
+
+The full local flow is:
+
+1. Telemetry generation
+2. Ingestion
+3. Validation
+4. Threat detection
+5. Identity governance
+6. Risk scoring
+7. Monitoring and operational evidence
+8. Copilot investigation outputs
+
+The copilot layer writes `outputs/copilot_context.json` and five Markdown reports for investigation summary, SOC triage, executive briefing, remediation planning, and compliance evidence. It simulates Azure AI Foundry and Security Copilot-style workflows locally without calling Azure OpenAI, Azure AI Foundry, OpenAI, LangChain, Microsoft Graph, or external APIs.
+
 ## Reporting Layer
 
 The reporting layer will produce investigation reports, compliance evidence, monitoring outputs, and dashboard-ready exports. These outputs will support both analyst workflows and executive communication.

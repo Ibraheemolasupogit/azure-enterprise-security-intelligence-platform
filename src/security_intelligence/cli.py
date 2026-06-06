@@ -4,6 +4,7 @@ import argparse
 import pprint
 
 from security_intelligence.config import load_yaml_config
+from security_intelligence.copilot.engine import generate_copilot_briefs
 from security_intelligence.detections.engine import run_detections
 from security_intelligence.identity.engine import run_identity_checks
 from security_intelligence.ingestion.pipeline import ingest_telemetry
@@ -224,6 +225,25 @@ def build_parser() -> argparse.ArgumentParser:
         default=90,
         help="Warn when data quality score is below this threshold.",
     )
+    copilot_parser = subparsers.add_parser(
+        "generate-copilot-briefs",
+        help="Generate local simulated GenAI-style investigation copilot reports.",
+    )
+    copilot_parser.add_argument(
+        "--outputs-dir",
+        default=str(OUTPUT_DIR),
+        help="Directory containing platform output artifacts.",
+    )
+    copilot_parser.add_argument(
+        "--reports-dir",
+        default=str(REPORTS_DIR),
+        help="Directory where copilot Markdown reports will be written.",
+    )
+    copilot_parser.add_argument(
+        "--context-path",
+        default=str(OUTPUT_DIR / "copilot_context.json"),
+        help="Path where copilot context JSON will be written.",
+    )
 
     return parser
 
@@ -345,6 +365,18 @@ def main(argv: list[str] | None = None) -> int:
         print("Key metrics:")
         for metric, value in health["key_metrics"].items():
             print(f"- {metric}: {value}")
+        return 0
+
+    if args.command == "generate-copilot-briefs":
+        result = generate_copilot_briefs(
+            outputs_dir=args.outputs_dir,
+            reports_dir=args.reports_dir,
+            context_path=args.context_path,
+        )
+        print("Local simulated copilot briefs generated:")
+        print(f"Context: {result['context_path']}")
+        for prompt_type, report_path in result["generated_reports"].items():
+            print(f"- {prompt_type}: {report_path}")
         return 0
 
     parser.error(f"Unsupported command: {args.command}")

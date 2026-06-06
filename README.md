@@ -69,7 +69,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | 6 | Identity governance checks | Complete |
 | 7 | Risk scoring and analytics | Complete |
 | 8 | Monitoring and operational evidence | Complete |
-| 9 | GenAI security investigation copilot | Planned |
+| 9 | GenAI security investigation copilot | Complete |
 | 10 | Dashboard and reporting exports | Planned |
 | 11 | Azure architecture and deployment design | Planned |
 | 12 | Portfolio polish | Planned |
@@ -194,6 +194,27 @@ Monitoring outputs include:
 
 The monitoring layer is deterministic, local-first, and based on synthetic local evidence only.
 
+## Local-First GenAI Investigation Copilot Simulation
+
+Milestone 9 adds a local-first GenAI security investigation copilot simulation. It uses deterministic prompt templates and rule-based Markdown generation to produce Security Copilot and Azure AI Foundry-style investigation outputs without calling Azure OpenAI, Azure AI Foundry, OpenAI, LangChain, Microsoft Graph, or any external service.
+
+Run the simulated copilot after the local pipeline has produced monitoring and evidence outputs:
+
+```bash
+python -m security_intelligence.cli generate-copilot-briefs
+```
+
+Copilot simulation outputs include:
+
+- `outputs/copilot_context.json`: structured investigation context from findings, risk scores, health, and evidence manifest artifacts
+- `reports/copilot_investigation_summary.md`: security investigation summary
+- `reports/copilot_soc_triage_note.md`: analyst-ready triage note
+- `reports/copilot_executive_brief.md`: business-friendly executive incident brief
+- `reports/copilot_remediation_plan.md`: remediation plan grouped by control area
+- `reports/copilot_compliance_evidence_summary.md`: audit and evidence summary
+
+Every generated report clearly states that it is a local simulated GenAI-style response based on synthetic platform outputs.
+
 ## Local Development
 
 Install the package in editable mode with development dependencies:
@@ -254,6 +275,12 @@ Monitor platform evidence:
 
 ```bash
 security-intelligence monitor-platform
+```
+
+Generate local simulated copilot briefs:
+
+```bash
+security-intelligence generate-copilot-briefs
 ```
 
 Run tests:

@@ -120,3 +120,15 @@ monitoring:
     - reports/security_findings_report.md
     - reports/identity_governance_report.md
     - reports/risk_scoring_report.md
+
+copilot:
+  mode: local_simulated
+  max_security_findings: 5
+  max_identity_findings: 5
+  max_risk_entities: 10
+  generated_reports:
+    - reports/copilot_investigation_summary.md
+    - reports/copilot_soc_triage_note.md
+    - reports/copilot_executive_brief.md
+    - reports/copilot_remediation_plan.md
+    - reports/copilot_compliance_evidence_summary.md
