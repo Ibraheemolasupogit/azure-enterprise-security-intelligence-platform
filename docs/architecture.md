@@ -8,7 +8,18 @@ Future milestones will add functional layers incrementally while keeping local e
 
 ## Synthetic Telemetry Layer
 
-The synthetic telemetry layer will generate representative enterprise security events such as sign-in logs, audit records, endpoint alerts, network activity, identity inventory, and privileged access records. This layer will allow realistic analytics workflows without using real customer data or production cloud services.
+The synthetic telemetry layer generates representative enterprise security records without using real users, credentials, tenant identifiers, or live Azure data. It writes local JSONL files under `data/raw/` for identity events, login events, endpoint events, application events, security alerts, and cloud control-plane activity.
+
+Generation is deterministic through a configurable random seed. This keeps demos, tests, and future analytics work reproducible while still producing varied users, departments, devices, applications, locations, authentication methods, resources, and severity levels.
+
+The layer includes both normal operational activity and a small set of linked suspicious scenarios:
+
+- Impossible travel login activity that leads to a synthetic security alert
+- Privileged role assignment followed by sensitive cloud activity
+- Malware endpoint detection that leads to an alert
+- Dormant privileged account evidence based on identity history
+
+These datasets are intentionally raw outputs. Later milestones will add ingestion, validation, detection execution, identity governance checks, risk scoring, reporting, and dashboard exports.
 
 ## Ingestion Layer
 
@@ -40,4 +51,3 @@ The local architecture is designed to map cleanly to Azure security services:
 - Azure Monitor for operational metrics and monitoring evidence
 - Power BI for dashboard-ready reporting
 - Azure Key Vault for future secret and configuration management
-

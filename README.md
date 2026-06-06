@@ -62,7 +62,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | Milestone | Name | Status |
 | --- | --- | --- |
 | 1 | Scaffold | Complete |
-| 2 | Synthetic telemetry | Planned |
+| 2 | Synthetic telemetry | Complete |
 | 3 | Ingestion pipeline | Planned |
 | 4 | Validation and data quality | Planned |
 | 5 | Threat detection rules | Planned |
@@ -73,6 +73,25 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | 10 | Dashboard and reporting exports | Planned |
 | 11 | Azure architecture and deployment design | Planned |
 | 12 | Portfolio polish | Planned |
+
+## Synthetic Telemetry Datasets
+
+Milestone 2 adds deterministic synthetic telemetry generation for six local JSONL datasets:
+
+- `data/raw/identity_events.jsonl`
+- `data/raw/login_events.jsonl`
+- `data/raw/endpoint_events.jsonl`
+- `data/raw/application_events.jsonl`
+- `data/raw/security_alerts.jsonl`
+- `data/raw/cloud_activity.jsonl`
+
+The generated records are artificial and safe for public repositories. They do not contain real users, real credentials, real tenant identifiers, or live Azure data. The datasets include normal activity and a small number of linked suspicious scenarios, such as impossible travel leading to an alert, privileged role assignment followed by cloud control-plane activity, malware detection leading to an alert, and dormant privileged account evidence.
+
+Generate the default local telemetry:
+
+```bash
+python -m security_intelligence.cli generate-telemetry --days 30 --users 50 --seed 42
+```
 
 ## Local Development
 
@@ -94,9 +113,14 @@ Show the local platform configuration:
 security-intelligence show-config
 ```
 
+Generate synthetic telemetry:
+
+```bash
+security-intelligence generate-telemetry --days 30 --users 50 --seed 42
+```
+
 Run tests:
 
 ```bash
 pytest
 ```
-

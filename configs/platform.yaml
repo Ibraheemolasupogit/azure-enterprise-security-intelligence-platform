@@ -30,3 +30,15 @@ output_paths:
   investigation_reports: reports
   dashboard_exports: outputs/dashboard
 
+telemetry_generation:
+  default_days: 30
+  default_users: 50
+  default_seed: 42
+  output_dir: data/raw
+  expected_datasets:
+    - identity_events.jsonl
+    - login_events.jsonl
+    - endpoint_events.jsonl
+    - application_events.jsonl
+    - security_alerts.jsonl
+    - cloud_activity.jsonl

@@ -10,7 +10,7 @@ Status: Complete
 
 Generate realistic local sample security telemetry for identity, endpoint, audit, and network-style events.
 
-Status: Planned
+Status: Complete
 
 ## Milestone 3 — Ingestion Pipeline
 
@@ -71,4 +71,3 @@ Status: Planned
 Refine documentation, examples, tests, diagrams, and presentation-ready project assets.
 
 Status: Planned
-
