@@ -7,6 +7,7 @@ from security_intelligence.config import load_yaml_config
 from security_intelligence.detections.engine import run_detections
 from security_intelligence.identity.engine import run_identity_checks
 from security_intelligence.ingestion.pipeline import ingest_telemetry
+from security_intelligence.monitoring.engine import monitor_platform
 from security_intelligence.paths import CONFIG_DIR, DATA_DIR, OUTPUT_DIR, REPORTS_DIR
 from security_intelligence.risk.engine import score_risk
 from security_intelligence.telemetry.generator import generate_telemetry
@@ -182,6 +183,47 @@ def build_parser() -> argparse.ArgumentParser:
         default=str(REPORTS_DIR / "risk_scoring_report.md"),
         help="Path where the Markdown risk scoring report will be written.",
     )
+    monitor_parser = subparsers.add_parser(
+        "monitor-platform",
+        help="Generate local operational health and evidence outputs.",
+    )
+    monitor_parser.add_argument(
+        "--outputs-dir",
+        default=str(OUTPUT_DIR),
+        help="Directory containing pipeline output artifacts.",
+    )
+    monitor_parser.add_argument(
+        "--reports-dir",
+        default=str(REPORTS_DIR),
+        help="Directory containing report artifacts.",
+    )
+    monitor_parser.add_argument(
+        "--health-path",
+        default=str(OUTPUT_DIR / "operational_health_summary.json"),
+        help="Path where operational health JSON will be written.",
+    )
+    monitor_parser.add_argument(
+        "--manifest-path",
+        default=str(OUTPUT_DIR / "evidence_manifest.json"),
+        help="Path where evidence manifest JSON will be written.",
+    )
+    monitor_parser.add_argument(
+        "--report-path",
+        default=str(REPORTS_DIR / "operational_evidence_report.md"),
+        help="Path where operational evidence Markdown report will be written.",
+    )
+    monitor_parser.add_argument(
+        "--freshness-hours",
+        type=int,
+        default=24,
+        help="Warn when artifacts are older than this many hours.",
+    )
+    monitor_parser.add_argument(
+        "--quality-threshold",
+        type=float,
+        default=90,
+        help="Warn when data quality score is below this threshold.",
+    )
 
     return parser
 
@@ -283,6 +325,26 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Total entities scored: {summary['total_entities_scored']}")
         for band, count in summary["risk_band_counts"].items():
             print(f"- {band}: {count}")
+        return 0
+
+    if args.command == "monitor-platform":
+        result = monitor_platform(
+            outputs_dir=args.outputs_dir,
+            reports_dir=args.reports_dir,
+            health_path=args.health_path,
+            manifest_path=args.manifest_path,
+            report_path=args.report_path,
+            freshness_hours=args.freshness_hours,
+            quality_threshold=args.quality_threshold,
+        )
+        health = result["health_summary"]
+        print("Platform monitoring complete:")
+        print(f"Overall status: {health['overall_status']}")
+        print(f"Warnings: {len(health['warnings'])}")
+        print(f"Failures: {len(health['failures'])}")
+        print("Key metrics:")
+        for metric, value in health["key_metrics"].items():
+            print(f"- {metric}: {value}")
         return 0
 
     parser.error(f"Unsupported command: {args.command}")

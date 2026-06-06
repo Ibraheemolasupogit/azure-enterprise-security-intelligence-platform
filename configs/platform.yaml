@@ -105,3 +105,18 @@ risk_scoring:
     guest_exposure: 15
     role_sprawl: 10
     dormant_user: 5
+
+monitoring:
+  freshness_hours: 24
+  data_quality_threshold: 90
+  expected_outputs:
+    - outputs/ingestion_summary.json
+    - outputs/data_quality_summary.json
+    - outputs/security_findings.json
+    - outputs/identity_governance_findings.json
+    - outputs/risk_scores.json
+  evidence_reports:
+    - reports/data_quality_report.md
+    - reports/security_findings_report.md
+    - reports/identity_governance_report.md
+    - reports/risk_scoring_report.md

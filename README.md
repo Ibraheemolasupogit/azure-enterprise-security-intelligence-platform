@@ -68,7 +68,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | 5 | Threat detection rules | Complete |
 | 6 | Identity governance checks | Complete |
 | 7 | Risk scoring and analytics | Complete |
-| 8 | Monitoring and operational evidence | Planned |
+| 8 | Monitoring and operational evidence | Complete |
 | 9 | GenAI security investigation copilot | Planned |
 | 10 | Dashboard and reporting exports | Planned |
 | 11 | Azure architecture and deployment design | Planned |
@@ -176,6 +176,24 @@ Risk scoring outputs include:
 
 The scoring method is deterministic and explainable. It uses severity weights, identity governance category weights, privileged-role modifiers, multiple-category modifiers, and overlap between security and governance evidence.
 
+## Monitoring And Operational Evidence
+
+Milestone 8 adds local monitoring and operational evidence generation for pipeline health, dataset freshness, record counts, validation status, detection findings, identity governance findings, risk scoring outputs, and audit-ready evidence artifacts. It aligns conceptually to Azure Monitor, Microsoft Sentinel operational visibility, audit evidence, and security governance reporting while remaining fully local.
+
+Run monitoring after the local pipeline has produced ingestion, validation, detection, identity governance, and risk outputs:
+
+```bash
+python -m security_intelligence.cli monitor-platform
+```
+
+Monitoring outputs include:
+
+- `outputs/operational_health_summary.json`: machine-readable pipeline health summary, warnings, failures, key metrics, and recommended actions
+- `outputs/evidence_manifest.json`: evidence pack manifest listing JSON, CSV, and Markdown artifacts with control alignment
+- `reports/operational_evidence_report.md`: human-readable operational evidence report for SOC, audit, and executive visibility
+
+The monitoring layer is deterministic, local-first, and based on synthetic local evidence only.
+
 ## Local Development
 
 Install the package in editable mode with development dependencies:
@@ -230,6 +248,12 @@ Score risk:
 
 ```bash
 security-intelligence score-risk
+```
+
+Monitor platform evidence:
+
+```bash
+security-intelligence monitor-platform
 ```
 
 Run tests:

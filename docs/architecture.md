@@ -84,6 +84,22 @@ The current flow is:
 
 Risk scores are deterministic. They use severity weights, governance category weights, privileged-role modifiers, multiple-category modifiers, and overlap between security and governance findings. This creates a transparent prioritization layer for SOC review, Zero Trust governance, executive reporting, downstream dashboards, and future ML-readiness.
 
+## Monitoring And Operational Evidence Layer
+
+The monitoring layer reads the outputs created by ingestion, validation, threat detection, identity governance, and risk scoring. It checks artifact existence, file freshness, record counts, validation quality, security posture signals, identity governance posture, and risk scoring posture.
+
+The full local flow is:
+
+1. Telemetry generation
+2. Ingestion
+3. Validation
+4. Threat detection
+5. Identity governance
+6. Risk scoring
+7. Monitoring and operational evidence
+
+Monitoring writes `outputs/operational_health_summary.json`, `outputs/evidence_manifest.json`, and `reports/operational_evidence_report.md`. These artifacts simulate Azure Monitor and Microsoft Sentinel-style operational evidence while remaining local-first and synthetic.
+
 ## Reporting Layer
 
 The reporting layer will produce investigation reports, compliance evidence, monitoring outputs, and dashboard-ready exports. These outputs will support both analyst workflows and executive communication.
