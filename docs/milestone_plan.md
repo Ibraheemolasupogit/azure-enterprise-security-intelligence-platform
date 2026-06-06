@@ -40,7 +40,7 @@ Status: Complete
 
 Create risk scoring logic and analytics outputs that prepare the project for future ML workflows.
 
-Status: Planned
+Status: Complete
 
 ## Milestone 8 — Monitoring And Operational Evidence
 

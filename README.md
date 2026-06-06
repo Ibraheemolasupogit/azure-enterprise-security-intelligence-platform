@@ -67,7 +67,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | 4 | Validation and data quality | Complete |
 | 5 | Threat detection rules | Complete |
 | 6 | Identity governance checks | Complete |
-| 7 | Risk scoring and analytics | Planned |
+| 7 | Risk scoring and analytics | Complete |
 | 8 | Monitoring and operational evidence | Planned |
 | 9 | GenAI security investigation copilot | Planned |
 | 10 | Dashboard and reporting exports | Planned |
@@ -158,6 +158,24 @@ Identity governance outputs include:
 
 The identity governance layer is local-first, uses synthetic telemetry only, and does not call Microsoft Graph or Azure APIs.
 
+## Risk Scoring And Analytics
+
+Milestone 7 adds deterministic risk scoring that combines security findings, identity governance findings, data quality evidence, and local identity context into explainable entity risk records. This layer supports SOC prioritisation, Zero Trust governance reviews, executive reporting, downstream dashboards, and future ML-readiness without building ML models yet.
+
+Run risk scoring after generating, ingesting, validating, running detections, and running identity checks:
+
+```bash
+python -m security_intelligence.cli score-risk
+```
+
+Risk scoring outputs include:
+
+- `outputs/risk_scores.json`: machine-readable risk records, scoring weights, data quality context, top risks, and risk band counts
+- `outputs/risk_scores.csv`: flattened risk score table for downstream analytics
+- `reports/risk_scoring_report.md`: human-readable risk report with top entities, contributing factors, scoring method, and recommended actions
+
+The scoring method is deterministic and explainable. It uses severity weights, identity governance category weights, privileged-role modifiers, multiple-category modifiers, and overlap between security and governance evidence.
+
 ## Local Development
 
 Install the package in editable mode with development dependencies:
@@ -206,6 +224,12 @@ Run identity governance checks:
 
 ```bash
 security-intelligence run-identity-checks --input-dir data/processed
+```
+
+Score risk:
+
+```bash
+security-intelligence score-risk
 ```
 
 Run tests:

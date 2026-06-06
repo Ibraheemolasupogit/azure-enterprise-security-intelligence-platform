@@ -69,9 +69,20 @@ Identity governance evidence is written to `outputs/identity_governance_findings
 
 This layer maps conceptually to Microsoft Entra ID identity governance patterns but remains fully local. It does not connect to Microsoft Graph, Azure, or real identity data.
 
-## Risk Layer
+## Risk Scoring And Analytics Layer
 
-The future risk layer will score and prioritize validated telemetry, detection findings, and identity governance findings. That work is intentionally deferred until later milestones.
+The risk scoring layer combines evidence from validation, deterministic detections, identity governance checks, and processed identity telemetry. It produces explainable risk records for users, devices, and cloud resources where evidence is available.
+
+The current flow is:
+
+1. Telemetry generation creates synthetic JSONL records.
+2. Ingestion converts raw JSONL into processed CSV files.
+3. Validation creates data quality evidence.
+4. Detection rules generate security findings.
+5. Identity governance checks generate access review evidence.
+6. Risk scoring combines those outputs into `outputs/risk_scores.json`, `outputs/risk_scores.csv`, and `reports/risk_scoring_report.md`.
+
+Risk scores are deterministic. They use severity weights, governance category weights, privileged-role modifiers, multiple-category modifiers, and overlap between security and governance findings. This creates a transparent prioritization layer for SOC review, Zero Trust governance, executive reporting, downstream dashboards, and future ML-readiness.
 
 ## Reporting Layer
 

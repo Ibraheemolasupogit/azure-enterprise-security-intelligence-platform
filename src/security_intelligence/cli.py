@@ -8,6 +8,7 @@ from security_intelligence.detections.engine import run_detections
 from security_intelligence.identity.engine import run_identity_checks
 from security_intelligence.ingestion.pipeline import ingest_telemetry
 from security_intelligence.paths import CONFIG_DIR, DATA_DIR, OUTPUT_DIR, REPORTS_DIR
+from security_intelligence.risk.engine import score_risk
 from security_intelligence.telemetry.generator import generate_telemetry
 from security_intelligence.validation.validator import validate_telemetry
 
@@ -142,6 +143,45 @@ def build_parser() -> argparse.ArgumentParser:
         default=30,
         help="Number of days without successful login considered dormant.",
     )
+    risk_parser = subparsers.add_parser(
+        "score-risk",
+        help="Calculate deterministic entity risk scores from local evidence outputs.",
+    )
+    risk_parser.add_argument(
+        "--security-findings-path",
+        default=str(OUTPUT_DIR / "security_findings.json"),
+        help="Path to security findings JSON.",
+    )
+    risk_parser.add_argument(
+        "--identity-findings-path",
+        default=str(OUTPUT_DIR / "identity_governance_findings.json"),
+        help="Path to identity governance findings JSON.",
+    )
+    risk_parser.add_argument(
+        "--data-quality-path",
+        default=str(OUTPUT_DIR / "data_quality_summary.json"),
+        help="Path to data quality summary JSON.",
+    )
+    risk_parser.add_argument(
+        "--input-dir",
+        default=str(DATA_DIR / "processed"),
+        help="Directory containing processed telemetry CSV files for enrichment.",
+    )
+    risk_parser.add_argument(
+        "--output-path",
+        default=str(OUTPUT_DIR / "risk_scores.json"),
+        help="Path where risk scores JSON will be written.",
+    )
+    risk_parser.add_argument(
+        "--csv-path",
+        default=str(OUTPUT_DIR / "risk_scores.csv"),
+        help="Path where flattened risk scores CSV will be written.",
+    )
+    risk_parser.add_argument(
+        "--report-path",
+        default=str(REPORTS_DIR / "risk_scoring_report.md"),
+        help="Path where the Markdown risk scoring report will be written.",
+    )
 
     return parser
 
@@ -227,6 +267,22 @@ def main(argv: list[str] | None = None) -> int:
         print("Findings by category:")
         for category, count in summary["findings_by_category"].items():
             print(f"- {category}: {count}")
+        return 0
+
+    if args.command == "score-risk":
+        summary = score_risk(
+            security_findings_path=args.security_findings_path,
+            identity_findings_path=args.identity_findings_path,
+            data_quality_path=args.data_quality_path,
+            input_dir=args.input_dir,
+            output_path=args.output_path,
+            csv_path=args.csv_path,
+            report_path=args.report_path,
+        )
+        print("Risk scoring complete:")
+        print(f"Total entities scored: {summary['total_entities_scored']}")
+        for band, count in summary["risk_band_counts"].items():
+            print(f"- {band}: {count}")
         return 0
 
     parser.error(f"Unsupported command: {args.command}")

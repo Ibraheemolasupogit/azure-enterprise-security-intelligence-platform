@@ -76,3 +76,32 @@ identity_governance:
     - high
     - critical
     - elevated
+
+risk_scoring:
+  score_cap: 100
+  risk_bands:
+    low:
+      min: 0
+      max: 24
+    medium:
+      min: 25
+      max: 49
+    high:
+      min: 50
+      max: 74
+    critical:
+      min: 75
+      max: 100
+  severity_weights:
+    critical: 30
+    high: 20
+    medium: 10
+    low: 5
+  governance_category_weights:
+    mfa_gap: 15
+    risky_privilege_assignment: 25
+    privileged_cloud_activity: 25
+    dormant_privileged_account: 20
+    guest_exposure: 15
+    role_sprawl: 10
+    dormant_user: 5
