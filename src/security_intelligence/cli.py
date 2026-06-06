@@ -4,6 +4,7 @@ import argparse
 import pprint
 
 from security_intelligence.config import load_yaml_config
+from security_intelligence.ingestion.pipeline import ingest_telemetry
 from security_intelligence.paths import CONFIG_DIR, DATA_DIR
 from security_intelligence.telemetry.generator import generate_telemetry
 
@@ -51,6 +52,25 @@ def build_parser() -> argparse.ArgumentParser:
         default=50,
         help="Number of synthetic users to generate.",
     )
+    ingest_parser = subparsers.add_parser(
+        "ingest-telemetry",
+        help="Ingest raw synthetic telemetry JSONL files into processed CSV outputs.",
+    )
+    ingest_parser.add_argument(
+        "--input-dir",
+        default=str(DATA_DIR / "raw"),
+        help="Directory containing raw JSONL telemetry files.",
+    )
+    ingest_parser.add_argument(
+        "--output-dir",
+        default=str(DATA_DIR / "processed"),
+        help="Directory where processed CSV files will be written.",
+    )
+    ingest_parser.add_argument(
+        "--summary-path",
+        default="outputs/ingestion_summary.json",
+        help="Path where the ingestion summary JSON will be written.",
+    )
 
     return parser
 
@@ -79,6 +99,18 @@ def main(argv: list[str] | None = None) -> int:
         print("Synthetic telemetry generated:")
         for dataset_name, record_count in counts.items():
             print(f"- {dataset_name}: {record_count} records")
+        return 0
+
+    if args.command == "ingest-telemetry":
+        summary = ingest_telemetry(
+            input_dir=args.input_dir,
+            output_dir=args.output_dir,
+            summary_path=args.summary_path,
+        )
+        print("Telemetry ingestion complete:")
+        for dataset in summary["datasets"]:
+            print(f"- {dataset['dataset_name']}: {dataset['record_count']} records")
+        print(f"Total records ingested: {summary['total_records_ingested']}")
         return 0
 
     parser.error(f"Unsupported command: {args.command}")

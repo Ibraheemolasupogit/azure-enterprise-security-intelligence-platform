@@ -63,7 +63,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | --- | --- | --- |
 | 1 | Scaffold | Complete |
 | 2 | Synthetic telemetry | Complete |
-| 3 | Ingestion pipeline | Planned |
+| 3 | Ingestion pipeline | Complete |
 | 4 | Validation and data quality | Planned |
 | 5 | Threat detection rules | Planned |
 | 6 | Identity governance checks | Planned |
@@ -93,6 +93,19 @@ Generate the default local telemetry:
 python -m security_intelligence.cli generate-telemetry --days 30 --users 50 --seed 42
 ```
 
+## Telemetry Ingestion
+
+Milestone 3 adds a local ingestion pipeline that reads the raw synthetic JSONL files from `data/raw/`, verifies that all expected datasets are present, parses records safely, and writes processed CSV files to `data/processed/`. The pipeline also creates `outputs/ingestion_summary.json` with dataset-level record counts, column counts, source paths, processed paths, status, and total records ingested.
+
+Run the raw-to-processed flow:
+
+```bash
+python -m security_intelligence.cli generate-telemetry --days 30 --users 50 --seed 42
+python -m security_intelligence.cli ingest-telemetry --input-dir data/raw --output-dir data/processed
+```
+
+The processed CSV files are designed for downstream validation, detection engineering, identity governance checks, risk scoring, dashboards, and investigation reports in later milestones.
+
 ## Local Development
 
 Install the package in editable mode with development dependencies:
@@ -117,6 +130,12 @@ Generate synthetic telemetry:
 
 ```bash
 security-intelligence generate-telemetry --days 30 --users 50 --seed 42
+```
+
+Ingest synthetic telemetry:
+
+```bash
+security-intelligence ingest-telemetry --input-dir data/raw --output-dir data/processed
 ```
 
 Run tests:

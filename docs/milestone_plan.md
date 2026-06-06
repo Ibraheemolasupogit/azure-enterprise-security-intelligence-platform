@@ -16,7 +16,7 @@ Status: Complete
 
 Build a local ingestion pipeline for loading raw telemetry into normalized project datasets.
 
-Status: Planned
+Status: Complete
 
 ## Milestone 4 — Validation And Data Quality
 

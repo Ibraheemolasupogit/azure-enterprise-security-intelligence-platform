@@ -23,7 +23,18 @@ These datasets are intentionally raw outputs. Later milestones will add ingestio
 
 ## Ingestion Layer
 
-The ingestion layer will load raw telemetry into local project directories, normalize basic schemas, and prepare records for validation and analysis. Its structure will map to future Azure Data Lake Storage and Azure Data Explorer patterns while remaining file-based during local development.
+The ingestion layer loads the raw synthetic JSONL files from `data/raw/`, verifies that every expected dataset from `configs/platform.yaml` is available, parses each JSONL record, and writes structured CSV outputs to `data/processed/`.
+
+The raw-to-processed flow is intentionally simple:
+
+1. Discover expected dataset filenames from platform configuration.
+2. Fail fast with clear missing-file messages if required raw inputs are absent.
+3. Read JSONL records while skipping blank lines and reporting invalid JSON with file and line number.
+4. Convert each dataset into a pandas DataFrame.
+5. Add ingestion metadata columns for timestamp, source dataset, and source file.
+6. Write processed CSV files and `outputs/ingestion_summary.json`.
+
+This keeps Milestone 3 focused on local ingestion only. Later milestones will use the processed CSV files for validation, detection rules, identity governance checks, risk scoring, monitoring evidence, and reporting.
 
 ## Validation Layer
 
