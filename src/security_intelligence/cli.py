@@ -5,6 +5,7 @@ import pprint
 
 from security_intelligence.config import load_yaml_config
 from security_intelligence.detections.engine import run_detections
+from security_intelligence.identity.engine import run_identity_checks
 from security_intelligence.ingestion.pipeline import ingest_telemetry
 from security_intelligence.paths import CONFIG_DIR, DATA_DIR, OUTPUT_DIR, REPORTS_DIR
 from security_intelligence.telemetry.generator import generate_telemetry
@@ -111,6 +112,36 @@ def build_parser() -> argparse.ArgumentParser:
         default=str(REPORTS_DIR / "security_findings_report.md"),
         help="Path where the Markdown security findings report will be written.",
     )
+    identity_parser = subparsers.add_parser(
+        "run-identity-checks",
+        help="Run deterministic identity governance checks against processed telemetry.",
+    )
+    identity_parser.add_argument(
+        "--input-dir",
+        default=str(DATA_DIR / "processed"),
+        help="Directory containing processed telemetry CSV files.",
+    )
+    identity_parser.add_argument(
+        "--output-path",
+        default=str(OUTPUT_DIR / "identity_governance_findings.json"),
+        help="Path where identity governance findings JSON will be written.",
+    )
+    identity_parser.add_argument(
+        "--review-path",
+        default=str(OUTPUT_DIR / "identity_review.csv"),
+        help="Path where flattened identity review CSV will be written.",
+    )
+    identity_parser.add_argument(
+        "--report-path",
+        default=str(REPORTS_DIR / "identity_governance_report.md"),
+        help="Path where the Markdown identity governance report will be written.",
+    )
+    identity_parser.add_argument(
+        "--inactivity-days",
+        type=int,
+        default=30,
+        help="Number of days without successful login considered dormant.",
+    )
 
     return parser
 
@@ -178,6 +209,24 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Total findings: {summary['total_findings']}")
         for severity, count in summary["findings_by_severity"].items():
             print(f"- {severity}: {count}")
+        return 0
+
+    if args.command == "run-identity-checks":
+        summary = run_identity_checks(
+            input_dir=args.input_dir,
+            output_path=args.output_path,
+            review_path=args.review_path,
+            report_path=args.report_path,
+            inactivity_days=args.inactivity_days,
+        )
+        print("Identity governance checks complete:")
+        print(f"Total findings: {summary['total_findings']}")
+        print("Findings by severity:")
+        for severity, count in summary["findings_by_severity"].items():
+            print(f"- {severity}: {count}")
+        print("Findings by category:")
+        for category, count in summary["findings_by_category"].items():
+            print(f"- {category}: {count}")
         return 0
 
     parser.error(f"Unsupported command: {args.command}")

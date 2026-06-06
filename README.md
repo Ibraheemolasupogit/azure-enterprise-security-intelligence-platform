@@ -66,7 +66,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | 3 | Ingestion pipeline | Complete |
 | 4 | Validation and data quality | Complete |
 | 5 | Threat detection rules | Complete |
-| 6 | Identity governance checks | Planned |
+| 6 | Identity governance checks | Complete |
 | 7 | Risk scoring and analytics | Planned |
 | 8 | Monitoring and operational evidence | Planned |
 | 9 | GenAI security investigation copilot | Planned |
@@ -140,6 +140,24 @@ Detection outputs include:
 
 Each finding includes MITRE ATT&CK tactic and technique fields where appropriate. The detection layer is deterministic, local-first, and based only on synthetic telemetry.
 
+## Identity Governance Checks
+
+Milestone 6 adds deterministic identity governance checks aligned to Microsoft Entra ID identity governance and Zero Trust access review concepts. The checks analyze synthetic identity, login, application, cloud activity, and alert telemetry to identify dormant users, dormant privileged accounts, MFA gaps, guest exposure, role sprawl, risky privilege assignments, and privileged cloud activity.
+
+Run identity governance checks after generating and ingesting telemetry:
+
+```bash
+python -m security_intelligence.cli run-identity-checks --input-dir data/processed
+```
+
+Identity governance outputs include:
+
+- `outputs/identity_governance_findings.json`: machine-readable governance findings with evidence and source datasets
+- `outputs/identity_review.csv`: flattened user review table for access review workflows
+- `reports/identity_governance_report.md`: human-readable governance report with category summaries, highest-risk users, and recommended actions
+
+The identity governance layer is local-first, uses synthetic telemetry only, and does not call Microsoft Graph or Azure APIs.
+
 ## Local Development
 
 Install the package in editable mode with development dependencies:
@@ -182,6 +200,12 @@ Run deterministic detections:
 
 ```bash
 security-intelligence run-detections --input-dir data/processed
+```
+
+Run identity governance checks:
+
+```bash
+security-intelligence run-identity-checks --input-dir data/processed
 ```
 
 Run tests:

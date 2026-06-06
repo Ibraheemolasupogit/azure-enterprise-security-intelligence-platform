@@ -58,3 +58,21 @@ validation:
     - medium
     - high
     - critical
+
+identity_governance:
+  inactivity_days: 30
+  role_sprawl_threshold: 2
+  privileged_roles:
+    - Global Administrator
+    - Global Admin
+    - Security Administrator
+    - Security Operator
+    - Privileged Role Administrator
+    - Owner
+    - Contributor
+    - User Access Administrator
+  risky_risk_hints:
+    - medium
+    - high
+    - critical
+    - elevated

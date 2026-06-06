@@ -34,7 +34,7 @@ Status: Complete
 
 Add identity posture checks for privileged access, dormant accounts, access reviews, and governance findings.
 
-Status: Planned
+Status: Complete
 
 ## Milestone 7 — Risk Scoring And Analytics
 

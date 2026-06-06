@@ -61,9 +61,17 @@ The current local flow is:
 
 The detection layer covers impossible travel, repeated failed login activity, privileged role activation, suspicious PowerShell execution, malware detections, suspicious cloud control-plane changes, and bulk application exports. It does not perform risk scoring, identity governance checks, ML, or GenAI workflows.
 
+## Identity Governance Layer
+
+The identity governance layer analyzes processed identity, login, application, cloud activity, and alert telemetry to produce local access review evidence. It identifies dormant users, dormant privileged accounts, MFA gaps, guest exposure, role sprawl, risky privilege assignments, and privileged cloud activity.
+
+Identity governance evidence is written to `outputs/identity_governance_findings.json`, `outputs/identity_review.csv`, and `reports/identity_governance_report.md`. The flattened review CSV supports Zero Trust-style access review workflows, while the JSON output preserves detailed evidence and source dataset references for later reporting.
+
+This layer maps conceptually to Microsoft Entra ID identity governance patterns but remains fully local. It does not connect to Microsoft Graph, Azure, or real identity data.
+
 ## Risk Layer
 
-The future risk layer will score and prioritize validated telemetry and detection findings. That work is intentionally deferred until later milestones.
+The future risk layer will score and prioritize validated telemetry, detection findings, and identity governance findings. That work is intentionally deferred until later milestones.
 
 ## Reporting Layer
 
