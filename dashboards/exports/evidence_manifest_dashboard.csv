@@ -1,0 +1,12 @@
+artifact_name,artifact_type,path,exists,purpose,related_stage
+Ingestion Summary,json,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/ingestion_summary.json,True,Record counts and processed file lineage for telemetry ingestion.,ingestion
+Data Quality Summary,json,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/data_quality_summary.json,True,Machine-readable validation results and data quality score.,validation
+Security Findings,json,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/security_findings.json,True,Deterministic threat detection findings and MITRE mappings.,threat_detection
+Identity Governance Findings,json,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/identity_governance_findings.json,True,Identity governance findings and access review evidence.,identity_governance
+Risk Scores,json,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/risk_scores.json,True,Entity risk scoring records and risk band distribution.,risk_scoring
+Risk Scores CSV,csv,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/risk_scores.csv,True,Flattened risk score export for analytics and reporting.,risk_scoring
+Identity Review CSV,csv,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/identity_review.csv,True,Flattened identity review evidence for governance workflows.,identity_governance
+Data Quality Report,markdown,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/reports/data_quality_report.md,True,Human-readable data quality evidence report.,validation
+Security Findings Report,markdown,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/reports/security_findings_report.md,True,Human-readable detection findings report.,threat_detection
+Identity Governance Report,markdown,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/reports/identity_governance_report.md,True,Human-readable identity governance report.,identity_governance
+Risk Scoring Report,markdown,/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/reports/risk_scoring_report.md,True,Human-readable risk scoring report.,risk_scoring

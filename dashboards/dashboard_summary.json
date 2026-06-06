@@ -1,0 +1,119 @@
+{
+  "dashboard_exports_created": [
+    "dashboards/exports/security_findings_dashboard.csv",
+    "dashboards/exports/identity_governance_dashboard.csv",
+    "dashboards/exports/risk_scores_dashboard.csv",
+    "dashboards/exports/operational_health_dashboard.csv",
+    "dashboards/exports/evidence_manifest_dashboard.csv",
+    "dashboards/exports/executive_summary_metrics.csv"
+  ],
+  "executive_metrics": [
+    {
+      "description": "Total records ingested from synthetic raw telemetry.",
+      "metric_category": "pipeline",
+      "metric_name": "total_records_ingested",
+      "metric_status": "good",
+      "metric_value": 367,
+      "source_artifact": "outputs/ingestion_summary.json"
+    },
+    {
+      "description": "Overall validation data quality score.",
+      "metric_category": "quality",
+      "metric_name": "data_quality_score",
+      "metric_status": "good",
+      "metric_value": 95.0,
+      "source_artifact": "outputs/data_quality_summary.json"
+    },
+    {
+      "description": "Total deterministic security findings.",
+      "metric_category": "security",
+      "metric_name": "total_security_findings",
+      "metric_status": "warning",
+      "metric_value": 58,
+      "source_artifact": "outputs/security_findings.json"
+    },
+    {
+      "description": "Critical security findings requiring SOC review.",
+      "metric_category": "security",
+      "metric_name": "critical_security_findings",
+      "metric_status": "warning",
+      "metric_value": 23,
+      "source_artifact": "outputs/security_findings.json"
+    },
+    {
+      "description": "Total identity governance findings.",
+      "metric_category": "identity",
+      "metric_name": "total_identity_governance_findings",
+      "metric_status": "warning",
+      "metric_value": 73,
+      "source_artifact": "outputs/identity_governance_findings.json"
+    },
+    {
+      "description": "Critical and high identity governance findings.",
+      "metric_category": "identity",
+      "metric_name": "critical_high_identity_governance_findings",
+      "metric_status": "warning",
+      "metric_value": 27,
+      "source_artifact": "outputs/identity_governance_findings.json"
+    },
+    {
+      "description": "Total entities with deterministic risk scores.",
+      "metric_category": "risk",
+      "metric_name": "total_entities_scored",
+      "metric_status": "good",
+      "metric_value": 90,
+      "source_artifact": "outputs/risk_scores.json"
+    },
+    {
+      "description": "Entities in the critical risk band.",
+      "metric_category": "risk",
+      "metric_name": "critical_risk_entities",
+      "metric_status": "warning",
+      "metric_value": 18,
+      "source_artifact": "outputs/risk_scores.json"
+    },
+    {
+      "description": "Overall local platform operational health status.",
+      "metric_category": "operations",
+      "metric_name": "operational_health_status",
+      "metric_status": "warning",
+      "metric_value": "warning",
+      "source_artifact": "outputs/operational_health_summary.json"
+    },
+    {
+      "description": "Evidence artifacts available in the local manifest.",
+      "metric_category": "evidence",
+      "metric_name": "evidence_artifacts_available",
+      "metric_status": "good",
+      "metric_value": 11,
+      "source_artifact": "outputs/evidence_manifest.json"
+    },
+    {
+      "description": "Whether local simulated copilot context was generated.",
+      "metric_category": "copilot",
+      "metric_name": "copilot_context_generated",
+      "metric_status": "good",
+      "metric_value": true,
+      "source_artifact": "outputs/copilot_context.json"
+    }
+  ],
+  "generated_timestamp": "2026-06-06T23:52:46.783410+00:00",
+  "recommended_dashboard_pages": [
+    "Executive Security Overview",
+    "SOC Findings Overview",
+    "Identity Governance Review",
+    "Risk Prioritisation",
+    "Operational Evidence",
+    "Copilot Investigation Briefs"
+  ],
+  "source_artifacts_used": [
+    "/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/ingestion_summary.json",
+    "/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/data_quality_summary.json",
+    "/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/security_findings.json",
+    "/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/identity_governance_findings.json",
+    "/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/risk_scores.json",
+    "/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/operational_health_summary.json",
+    "/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/evidence_manifest.json",
+    "/Users/privilege/Desktop/GitHub_repository/azure-enterprise-security-intelligence-platform/outputs/copilot_context.json"
+  ]
+}

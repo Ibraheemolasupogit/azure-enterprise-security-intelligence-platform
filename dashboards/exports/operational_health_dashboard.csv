@@ -1,0 +1,7 @@
+pipeline_stage,status,artifact_exists,record_count,warning_count,failure_count,recommended_action
+telemetry_generation,passed,True,367,0,0,Regenerate synthetic telemetry if record counts are unexpectedly low.
+ingestion,passed,True,367,0,0,Review ingestion summary and regenerate processed CSV files.
+validation,passed,True,6,0,0,Review data quality report and fix failed validation checks.
+threat_detection,warning,True,58,1,0,Triage critical and high security findings.
+identity_governance,warning,True,73,1,0,Review high-risk identity governance findings and access reviews.
+risk_scoring,warning,True,90,1,0,Prioritize critical risk entities for operational review.

@@ -5,6 +5,7 @@ import pprint
 
 from security_intelligence.config import load_yaml_config
 from security_intelligence.copilot.engine import generate_copilot_briefs
+from security_intelligence.dashboard.exporter import export_dashboard_data
 from security_intelligence.detections.engine import run_detections
 from security_intelligence.identity.engine import run_identity_checks
 from security_intelligence.ingestion.pipeline import ingest_telemetry
@@ -244,6 +245,25 @@ def build_parser() -> argparse.ArgumentParser:
         default=str(OUTPUT_DIR / "copilot_context.json"),
         help="Path where copilot context JSON will be written.",
     )
+    dashboard_parser = subparsers.add_parser(
+        "export-dashboard-data",
+        help="Export local dashboard-ready CSV datasets and reporting artifacts.",
+    )
+    dashboard_parser.add_argument(
+        "--outputs-dir",
+        default=str(OUTPUT_DIR),
+        help="Directory containing platform output artifacts.",
+    )
+    dashboard_parser.add_argument(
+        "--dashboard-dir",
+        default="dashboards",
+        help="Directory where dashboard documentation and summary will be written.",
+    )
+    dashboard_parser.add_argument(
+        "--exports-dir",
+        default="dashboards/exports",
+        help="Directory where dashboard CSV exports will be written.",
+    )
 
     return parser
 
@@ -377,6 +397,20 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Context: {result['context_path']}")
         for prompt_type, report_path in result["generated_reports"].items():
             print(f"- {prompt_type}: {report_path}")
+        return 0
+
+    if args.command == "export-dashboard-data":
+        result = export_dashboard_data(
+            outputs_dir=args.outputs_dir,
+            dashboard_dir=args.dashboard_dir,
+            exports_dir=args.exports_dir,
+        )
+        print("Dashboard exports generated:")
+        for path in result["exports_created"]:
+            print(f"- {path}")
+        print("Executive metrics:")
+        for metric in result["executive_metrics"]:
+            print(f"- {metric['metric_name']}: {metric['metric_value']}")
         return 0
 
     parser.error(f"Unsupported command: {args.command}")

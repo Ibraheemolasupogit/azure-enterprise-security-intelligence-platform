@@ -1,0 +1,74 @@
+governance_finding_id,check_name,severity,user_id,user_principal_name,department,role,identity_type,finding_category,recommended_action
+IDG-FIND-000001,Privileged cloud activity,critical,user-0027,jamie.roberts027@contoso.example,Engineering,Security Operator,Guest,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000002,Privileged cloud activity,critical,user-0040,quinn.nguyen040@contoso.example,Sales,Security Operator,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000003,Privileged cloud activity,critical,user-0030,quinn.roberts030@contoso.example,Operations,Security Operator,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000004,Privileged cloud activity,critical,user-0019,sam.patel019@contoso.example,Engineering,Security Operator,Guest,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000005,MFA disabled or missing,high,user-0001,alex.chen001@contoso.example,Operations,Global Admin,Member,mfa_gap,Re-enable MFA and review conditional access coverage.
+IDG-FIND-000006,MFA disabled or missing,high,user-0011,alex.patel011@contoso.example,HR,User,Member,mfa_gap,Re-enable MFA and review conditional access coverage.
+IDG-FIND-000007,Privileged cloud activity,high,user-0008,avery.chen008@contoso.example,Legal,Security Operator,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000008,Privileged cloud activity,high,user-0008,avery.chen008@contoso.example,Legal,Security Operator,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000009,Privileged cloud activity,high,user-0008,avery.chen008@contoso.example,Legal,Security Operator,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000010,Risky privilege assignment,high,user-0004,casey.chen004@contoso.example,Sales,User,Member,risky_privilege_assignment,"Validate approval, justification, and time-bound access controls."
+IDG-FIND-000011,Guest user exposure,high,user-0034,casey.nguyen034@contoso.example,Sales,Application Admin,Guest,guest_exposure,"Review guest access, ownership, expiration, and application permissions."
+IDG-FIND-000012,Guest user exposure,high,user-0027,jamie.roberts027@contoso.example,Engineering,Security Operator,Guest,guest_exposure,"Review guest access, ownership, expiration, and application permissions."
+IDG-FIND-000013,Privileged cloud activity,high,user-0027,jamie.roberts027@contoso.example,Engineering,Security Operator,Guest,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000014,Risky privilege assignment,high,user-0002,jordan.chen002@contoso.example,Operations,Global Admin,Member,risky_privilege_assignment,"Validate approval, justification, and time-bound access controls."
+IDG-FIND-000015,Risky privilege assignment,high,user-0002,jordan.chen002@contoso.example,Operations,Global Admin,Member,risky_privilege_assignment,"Validate approval, justification, and time-bound access controls."
+IDG-FIND-000016,Privileged cloud activity,high,user-0002,jordan.chen002@contoso.example,Operations,Global Admin,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000017,Privileged cloud activity,high,user-0002,jordan.chen002@contoso.example,Operations,Global Admin,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000018,Risky privilege assignment,high,user-0015,morgan.patel015@contoso.example,Sales,Security Operator,Member,risky_privilege_assignment,"Validate approval, justification, and time-bound access controls."
+IDG-FIND-000019,Guest user exposure,high,user-0020,quinn.patel020@contoso.example,Operations,Security Reader,Guest,guest_exposure,"Review guest access, ownership, expiration, and application permissions."
+IDG-FIND-000020,Risky privilege assignment,high,user-0030,quinn.roberts030@contoso.example,Operations,Security Operator,Member,risky_privilege_assignment,"Validate approval, justification, and time-bound access controls."
+IDG-FIND-000021,Privileged cloud activity,high,user-0030,quinn.roberts030@contoso.example,Operations,Security Operator,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000022,Guest user exposure,high,user-0036,riley.nguyen036@contoso.example,Sales,Security Operator,Guest,guest_exposure,"Review guest access, ownership, expiration, and application permissions."
+IDG-FIND-000023,Risky privilege assignment,high,user-0026,riley.roberts026@contoso.example,Security,Security Operator,Member,risky_privilege_assignment,"Validate approval, justification, and time-bound access controls."
+IDG-FIND-000024,Privileged cloud activity,high,user-0026,riley.roberts026@contoso.example,Security,Security Operator,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000025,Privileged cloud activity,high,user-0026,riley.roberts026@contoso.example,Security,Security Operator,Member,privileged_cloud_activity,"Review change ticket, resource scope, and privileged session evidence."
+IDG-FIND-000026,Guest user exposure,high,user-0019,sam.patel019@contoso.example,Engineering,Security Operator,Guest,guest_exposure,"Review guest access, ownership, expiration, and application permissions."
+IDG-FIND-000027,Guest user exposure,high,user-0023,taylor.roberts023@contoso.example,Operations,Security Operator,Guest,guest_exposure,"Review guest access, ownership, expiration, and application permissions."
+IDG-FIND-000028,MFA disabled or missing,medium,user-0041,alex.garcia041@contoso.example,Legal,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000029,MFA disabled or missing,medium,user-0031,alex.nguyen031@contoso.example,Finance,Application Admin,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000030,MFA disabled or missing,medium,user-0021,alex.roberts021@contoso.example,Sales,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000031,MFA disabled or missing,medium,user-0008,avery.chen008@contoso.example,Legal,Security Operator,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000032,MFA disabled or missing,medium,user-0048,avery.garcia048@contoso.example,Finance,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000033,MFA disabled or missing,medium,user-0038,avery.nguyen038@contoso.example,Security,Security Operator,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000034,MFA disabled or missing,medium,user-0018,avery.patel018@contoso.example,Finance,Application Admin,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000035,MFA disabled or missing,medium,user-0004,casey.chen004@contoso.example,Sales,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000036,MFA disabled or missing,medium,user-0044,casey.garcia044@contoso.example,Security,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000037,MFA disabled or missing,medium,user-0034,casey.nguyen034@contoso.example,Sales,Application Admin,Guest,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000038,MFA disabled or missing,medium,user-0014,casey.patel014@contoso.example,Sales,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000039,MFA disabled or missing,medium,user-0024,casey.roberts024@contoso.example,Legal,Security Operator,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000040,MFA disabled or missing,medium,user-0007,jamie.chen007@contoso.example,Engineering,Application Admin,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000041,MFA disabled or missing,medium,user-0047,jamie.garcia047@contoso.example,Engineering,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000042,MFA disabled or missing,medium,user-0037,jamie.nguyen037@contoso.example,Operations,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000043,MFA disabled or missing,medium,user-0017,jamie.patel017@contoso.example,Legal,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000044,MFA disabled or missing,medium,user-0027,jamie.roberts027@contoso.example,Engineering,Security Operator,Guest,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000045,MFA disabled or missing,medium,user-0002,jordan.chen002@contoso.example,Operations,Global Admin,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000046,Role sprawl,medium,user-0002,jordan.chen002@contoso.example,Operations,Global Admin,Member,role_sprawl,Review role necessity and consolidate least-privilege access.
+IDG-FIND-000047,MFA disabled or missing,medium,user-0042,jordan.garcia042@contoso.example,Engineering,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000048,MFA disabled or missing,medium,user-0032,jordan.nguyen032@contoso.example,Security,Application Admin,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000049,MFA disabled or missing,medium,user-0012,jordan.patel012@contoso.example,Sales,Security Operator,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000050,MFA disabled or missing,medium,user-0022,jordan.roberts022@contoso.example,Engineering,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000051,MFA disabled or missing,medium,user-0005,morgan.chen005@contoso.example,Security,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000052,MFA disabled or missing,medium,user-0045,morgan.garcia045@contoso.example,Security,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000053,MFA disabled or missing,medium,user-0035,morgan.nguyen035@contoso.example,Sales,Application Admin,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000054,MFA disabled or missing,medium,user-0015,morgan.patel015@contoso.example,Sales,Security Operator,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000055,MFA disabled or missing,medium,user-0025,morgan.roberts025@contoso.example,Legal,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000056,MFA disabled or missing,medium,user-0010,quinn.chen010@contoso.example,Legal,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000057,MFA disabled or missing,medium,user-0050,quinn.garcia050@contoso.example,Operations,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000058,MFA disabled or missing,medium,user-0020,quinn.patel020@contoso.example,Operations,Security Reader,Guest,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000059,MFA disabled or missing,medium,user-0030,quinn.roberts030@contoso.example,Operations,Security Operator,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000060,MFA disabled or missing,medium,user-0006,riley.chen006@contoso.example,Sales,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000061,MFA disabled or missing,medium,user-0046,riley.garcia046@contoso.example,Security,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000062,MFA disabled or missing,medium,user-0036,riley.nguyen036@contoso.example,Sales,Security Operator,Guest,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000063,MFA disabled or missing,medium,user-0016,riley.patel016@contoso.example,Security,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000064,MFA disabled or missing,medium,user-0026,riley.roberts026@contoso.example,Security,Security Operator,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000065,MFA disabled or missing,medium,user-0009,sam.chen009@contoso.example,Finance,Application Admin,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000066,MFA disabled or missing,medium,user-0049,sam.garcia049@contoso.example,Engineering,Application Admin,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000067,MFA disabled or missing,medium,user-0019,sam.patel019@contoso.example,Engineering,Security Operator,Guest,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000068,MFA disabled or missing,medium,user-0029,sam.roberts029@contoso.example,Operations,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000069,MFA disabled or missing,medium,user-0003,taylor.chen003@contoso.example,Engineering,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000070,MFA disabled or missing,medium,user-0043,taylor.garcia043@contoso.example,Sales,User,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000071,MFA disabled or missing,medium,user-0033,taylor.nguyen033@contoso.example,Operations,Security Reader,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000072,MFA disabled or missing,medium,user-0013,taylor.patel013@contoso.example,Sales,Application Admin,Member,mfa_gap,Verify MFA registration and enforce strong authentication.
+IDG-FIND-000073,MFA disabled or missing,medium,user-0023,taylor.roberts023@contoso.example,Operations,Security Operator,Guest,mfa_gap,Verify MFA registration and enforce strong authentication.

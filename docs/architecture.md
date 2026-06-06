@@ -117,6 +117,24 @@ The full local flow is:
 
 The copilot layer writes `outputs/copilot_context.json` and five Markdown reports for investigation summary, SOC triage, executive briefing, remediation planning, and compliance evidence. It simulates Azure AI Foundry and Security Copilot-style workflows locally without calling Azure OpenAI, Azure AI Foundry, OpenAI, LangChain, Microsoft Graph, or external APIs.
 
+## Dashboard And Reporting Export Layer
+
+The dashboard export layer reads the platform outputs produced by ingestion, validation, detections, identity governance, risk scoring, monitoring, and copilot simulation. It creates dashboard-ready CSV files under `dashboards/exports/`, a dashboard summary JSON file, a dashboard README, and an optional lightweight Streamlit placeholder.
+
+The full local flow is:
+
+1. Telemetry generation
+2. Ingestion
+3. Validation
+4. Threat detection
+5. Identity governance
+6. Risk scoring
+7. Monitoring and operational evidence
+8. Copilot investigation outputs
+9. Dashboard and reporting exports
+
+These exports support Power BI import, Streamlit prototyping, SOC reporting, executive reporting, risk prioritisation, identity governance dashboards, and operational review without Power BI APIs or cloud resources.
+
 ## Reporting Layer
 
 The reporting layer will produce investigation reports, compliance evidence, monitoring outputs, and dashboard-ready exports. These outputs will support both analyst workflows and executive communication.

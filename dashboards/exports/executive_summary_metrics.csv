@@ -1,0 +1,12 @@
+metric_name,metric_value,metric_category,metric_status,description,source_artifact
+total_records_ingested,367,pipeline,good,Total records ingested from synthetic raw telemetry.,outputs/ingestion_summary.json
+data_quality_score,95.0,quality,good,Overall validation data quality score.,outputs/data_quality_summary.json
+total_security_findings,58,security,warning,Total deterministic security findings.,outputs/security_findings.json
+critical_security_findings,23,security,warning,Critical security findings requiring SOC review.,outputs/security_findings.json
+total_identity_governance_findings,73,identity,warning,Total identity governance findings.,outputs/identity_governance_findings.json
+critical_high_identity_governance_findings,27,identity,warning,Critical and high identity governance findings.,outputs/identity_governance_findings.json
+total_entities_scored,90,risk,good,Total entities with deterministic risk scores.,outputs/risk_scores.json
+critical_risk_entities,18,risk,warning,Entities in the critical risk band.,outputs/risk_scores.json
+operational_health_status,warning,operations,warning,Overall local platform operational health status.,outputs/operational_health_summary.json
+evidence_artifacts_available,11,evidence,good,Evidence artifacts available in the local manifest.,outputs/evidence_manifest.json
+copilot_context_generated,True,copilot,good,Whether local simulated copilot context was generated.,outputs/copilot_context.json

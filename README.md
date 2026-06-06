@@ -70,7 +70,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | 7 | Risk scoring and analytics | Complete |
 | 8 | Monitoring and operational evidence | Complete |
 | 9 | GenAI security investigation copilot | Complete |
-| 10 | Dashboard and reporting exports | Planned |
+| 10 | Dashboard and reporting exports | Complete |
 | 11 | Azure architecture and deployment design | Planned |
 | 12 | Portfolio polish | Planned |
 
@@ -215,6 +215,29 @@ Copilot simulation outputs include:
 
 Every generated report clearly states that it is a local simulated GenAI-style response based on synthetic platform outputs.
 
+## Dashboard And Reporting Exports
+
+Milestone 10 adds dashboard-ready CSV exports and lightweight local reporting artifacts for Power BI, Streamlit, executive reporting, SOC dashboards, governance dashboards, and operational review. The exports are generated locally from existing platform outputs and do not use Power BI APIs, Azure services, credentials, or hosted web infrastructure.
+
+Run dashboard export generation after the local pipeline has produced copilot context and evidence outputs:
+
+```bash
+python -m security_intelligence.cli export-dashboard-data
+```
+
+Dashboard outputs include:
+
+- `dashboards/exports/security_findings_dashboard.csv`
+- `dashboards/exports/identity_governance_dashboard.csv`
+- `dashboards/exports/risk_scores_dashboard.csv`
+- `dashboards/exports/operational_health_dashboard.csv`
+- `dashboards/exports/executive_summary_metrics.csv`
+- `dashboards/exports/evidence_manifest_dashboard.csv`
+- `dashboards/dashboard_summary.json`
+- `dashboards/README.md`
+
+The dashboard exports align to Power BI, SOC reporting, executive reporting, risk prioritisation, identity governance review, and operational evidence workflows.
+
 ## Local Development
 
 Install the package in editable mode with development dependencies:
@@ -281,6 +304,12 @@ Generate local simulated copilot briefs:
 
 ```bash
 security-intelligence generate-copilot-briefs
+```
+
+Export dashboard data:
+
+```bash
+security-intelligence export-dashboard-data
 ```
 
 Run tests:

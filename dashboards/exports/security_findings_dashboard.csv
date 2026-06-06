@@ -1,0 +1,59 @@
+finding_id,rule_name,severity,entity_type,entity_id,user_id,source_dataset,mitre_tactic,mitre_technique,recommended_action
+FIND-000001,Malware detected,critical,device,dev-0003,user-0003,security_alerts,Execution,User Execution,"Triage alert, confirm containment, and collect endpoint evidence."
+FIND-000002,Malware detected,critical,device,dev-0048,user-0048,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000003,Malware detected,critical,device,dev-0013,user-0013,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000004,Malware detected,critical,device,dev-0041,user-0041,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000005,Malware detected,critical,device,dev-0020,user-0020,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000006,Malware detected,critical,device,dev-0004,user-0004,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000007,Malware detected,critical,device,dev-0019,user-0019,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000008,Malware detected,critical,device,dev-0042,user-0042,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000009,Malware detected,critical,device,dev-0033,user-0033,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000010,Malware detected,critical,device,dev-0043,user-0043,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000011,Malware detected,critical,device,dev-0003,user-0003,endpoint_events,Execution,User Execution,Isolate host and review malware remediation status.
+FIND-000012,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-231,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000013,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-614,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000014,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-742,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000015,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-564,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000016,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-649,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000017,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-251,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000018,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-119,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000019,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-613,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000020,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-631,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000021,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-797,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000022,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-767,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000023,Suspicious cloud control-plane change,critical,resource,diagnosticsettings-835,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000024,Impossible travel,high,user,user-0001,user-0001,login_events,Initial Access,Valid Accounts,Review sign-in context and confirm user activity.
+FIND-000025,Privileged role activation,high,user,user-0002,user-0002,identity_events,Privilege Escalation,Account Manipulation,Review approval trail and remove unnecessary privilege.
+FIND-000026,Privileged role activation,high,user,user-0002,user-0002,identity_events,Privilege Escalation,Account Manipulation,Review approval trail and remove unnecessary privilege.
+FIND-000027,Suspicious PowerShell execution,high,device,dev-0050,user-0050,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000028,Suspicious PowerShell execution,high,device,dev-0010,user-0010,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000029,Suspicious PowerShell execution,high,device,dev-0017,user-0017,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000030,Suspicious PowerShell execution,high,device,dev-0049,user-0049,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000031,Suspicious PowerShell execution,high,device,dev-0041,user-0041,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000032,Suspicious PowerShell execution,high,device,dev-0023,user-0023,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000033,Suspicious PowerShell execution,high,device,dev-0029,user-0029,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000034,Suspicious PowerShell execution,high,device,dev-0040,user-0040,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000035,Suspicious PowerShell execution,high,device,dev-0044,user-0044,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000036,Suspicious PowerShell execution,high,device,dev-0039,user-0039,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000037,Suspicious PowerShell execution,high,device,dev-0009,user-0009,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000038,Suspicious PowerShell execution,high,device,dev-0020,user-0020,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000039,Suspicious PowerShell execution,high,device,dev-0020,user-0020,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000040,Suspicious PowerShell execution,high,device,dev-0009,user-0009,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000041,Suspicious PowerShell execution,high,device,dev-0007,user-0007,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000042,Suspicious PowerShell execution,high,device,dev-0048,user-0048,endpoint_events,Execution,PowerShell,"Inspect command line, parent process, and endpoint timeline."
+FIND-000043,Suspicious cloud control-plane change,high,resource,roleassignments-268,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000044,Suspicious cloud control-plane change,high,resource,roleassignments-303,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000045,Suspicious cloud control-plane change,high,resource,roleassignments-619,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000046,Suspicious cloud control-plane change,high,resource,roleassignments-935,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000047,Suspicious cloud control-plane change,high,resource,roleassignments-277,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000048,Suspicious cloud control-plane change,high,resource,roleassignments-504,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000049,Suspicious cloud control-plane change,high,resource,roleassignments-240,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000050,Suspicious cloud control-plane change,high,resource,diagnosticsettings-prod,,cloud_activity,Defense Evasion,Cloud Service Dashboard,Review change authorization and restore secure configuration.
+FIND-000051,Bulk application export,high,user,user-0030,user-0030,application_events,Collection,Data from Information Repositories,Review business justification and data access scope.
+FIND-000052,Bulk application export,high,user,user-0002,user-0002,application_events,Collection,Data from Information Repositories,Review business justification and data access scope.
+FIND-000053,Bulk application export,high,user,user-0003,user-0003,application_events,Collection,Data from Information Repositories,Review business justification and data access scope.
+FIND-000054,Bulk application export,high,user,user-0008,user-0008,application_events,Collection,Data from Information Repositories,Review business justification and data access scope.
+FIND-000055,Bulk application export,high,user,user-0034,user-0034,application_events,Collection,Data from Information Repositories,Review business justification and data access scope.
+FIND-000056,Bulk application export,high,user,user-0008,user-0008,application_events,Collection,Data from Information Repositories,Review business justification and data access scope.
+FIND-000057,Bulk application export,high,user,user-0034,user-0034,application_events,Collection,Data from Information Repositories,Review business justification and data access scope.
+FIND-000058,Bulk application export,high,user,user-0026,user-0026,application_events,Collection,Data from Information Repositories,Review business justification and data access scope.

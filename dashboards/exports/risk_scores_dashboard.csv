@@ -1,0 +1,91 @@
+risk_id,entity_type,entity_id,user_id,user_principal_name,department,role,risk_score,risk_band,security_finding_count,governance_finding_count,recommended_action
+RISK-000001,user,user-0002,user-0002,jordan.chen002@contoso.example,Operations,Global Admin,100,critical,3,6,Prioritize immediate investigation and executive visibility.
+RISK-000002,user,user-0003,user-0003,taylor.chen003@contoso.example,Engineering,Security Reader,100,critical,3,1,Prioritize immediate investigation and executive visibility.
+RISK-000003,user,user-0004,user-0004,casey.chen004@contoso.example,Sales,User,100,critical,1,2,Prioritize immediate investigation and executive visibility.
+RISK-000004,user,user-0008,user-0008,avery.chen008@contoso.example,Legal,Security Operator,100,critical,2,4,Prioritize immediate investigation and executive visibility.
+RISK-000005,user,user-0019,user-0019,sam.patel019@contoso.example,Engineering,Security Operator,100,critical,1,3,Prioritize immediate investigation and executive visibility.
+RISK-000006,user,user-0020,user-0020,quinn.patel020@contoso.example,Operations,Security Reader,100,critical,3,2,Prioritize immediate investigation and executive visibility.
+RISK-000007,user,user-0023,user-0023,taylor.roberts023@contoso.example,Operations,Security Operator,100,critical,1,2,Prioritize immediate investigation and executive visibility.
+RISK-000008,user,user-0026,user-0026,riley.roberts026@contoso.example,Security,Security Operator,100,critical,1,4,Prioritize immediate investigation and executive visibility.
+RISK-000009,user,user-0027,user-0027,jamie.roberts027@contoso.example,Engineering,Security Operator,100,critical,0,4,Prioritize immediate investigation and executive visibility.
+RISK-000010,user,user-0030,user-0030,quinn.roberts030@contoso.example,Operations,Security Operator,100,critical,1,4,Prioritize immediate investigation and executive visibility.
+RISK-000011,user,user-0034,user-0034,casey.nguyen034@contoso.example,Sales,Application Admin,100,critical,2,2,Prioritize immediate investigation and executive visibility.
+RISK-000012,user,user-0040,user-0040,quinn.nguyen040@contoso.example,Sales,Security Operator,100,critical,1,1,Prioritize immediate investigation and executive visibility.
+RISK-000013,user,user-0015,user-0015,morgan.patel015@contoso.example,Sales,Security Operator,90,critical,0,2,Prioritize immediate investigation and executive visibility.
+RISK-000014,user,user-0041,user-0041,alex.garcia041@contoso.example,Legal,User,90,critical,2,1,Prioritize immediate investigation and executive visibility.
+RISK-000015,user,user-0048,user-0048,avery.garcia048@contoso.example,Finance,Security Reader,90,critical,2,1,Prioritize immediate investigation and executive visibility.
+RISK-000016,user,user-0001,user-0001,alex.chen001@contoso.example,Operations,Global Admin,80,critical,1,1,Prioritize immediate investigation and executive visibility.
+RISK-000017,user,user-0009,user-0009,sam.chen009@contoso.example,Finance,Application Admin,80,critical,2,1,Prioritize immediate investigation and executive visibility.
+RISK-000018,user,user-0036,user-0036,riley.nguyen036@contoso.example,Sales,Security Operator,80,critical,0,2,Prioritize immediate investigation and executive visibility.
+RISK-000019,device,dev-0020,user-0020,quinn.patel020@contoso.example,Operations,Security Reader,70,high,3,0,Review within the next operational cycle and reduce exposure.
+RISK-000020,user,user-0013,user-0013,taylor.patel013@contoso.example,Sales,Application Admin,70,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000021,user,user-0033,user-0033,taylor.nguyen033@contoso.example,Operations,Security Reader,70,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000022,user,user-0042,user-0042,jordan.garcia042@contoso.example,Engineering,Security Reader,70,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000023,user,user-0043,user-0043,taylor.garcia043@contoso.example,Sales,User,70,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000024,device,dev-0003,user-0003,taylor.chen003@contoso.example,Engineering,Security Reader,60,high,2,0,Review within the next operational cycle and reduce exposure.
+RISK-000025,user,user-0007,user-0007,jamie.chen007@contoso.example,Engineering,Application Admin,60,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000026,user,user-0010,user-0010,quinn.chen010@contoso.example,Legal,Security Reader,60,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000027,user,user-0017,user-0017,jamie.patel017@contoso.example,Legal,User,60,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000028,user,user-0029,user-0029,sam.roberts029@contoso.example,Operations,Security Reader,60,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000029,user,user-0044,user-0044,casey.garcia044@contoso.example,Security,User,60,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000030,user,user-0049,user-0049,sam.garcia049@contoso.example,Engineering,Application Admin,60,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000031,user,user-0050,user-0050,quinn.garcia050@contoso.example,Operations,Security Reader,60,high,1,1,Review within the next operational cycle and reduce exposure.
+RISK-000032,device,dev-0041,user-0041,alex.garcia041@contoso.example,Legal,User,50,high,2,0,Review within the next operational cycle and reduce exposure.
+RISK-000033,device,dev-0048,user-0048,avery.garcia048@contoso.example,Finance,Security Reader,50,high,2,0,Review within the next operational cycle and reduce exposure.
+RISK-000034,device,dev-0009,user-0009,sam.chen009@contoso.example,Finance,Application Admin,40,medium,2,0,Track for governance review and validate compensating controls.
+RISK-000035,device,dev-0019,user-0019,sam.patel019@contoso.example,Engineering,Security Operator,40,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000036,user,user-0011,user-0011,alex.patel011@contoso.example,HR,User,35,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000037,user,user-0012,user-0012,jordan.patel012@contoso.example,Sales,Security Operator,35,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000038,user,user-0024,user-0024,casey.roberts024@contoso.example,Legal,Security Operator,35,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000039,user,user-0038,user-0038,avery.nguyen038@contoso.example,Security,Security Operator,35,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000040,device,dev-0004,user-0004,casey.chen004@contoso.example,Sales,User,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000041,device,dev-0013,user-0013,taylor.patel013@contoso.example,Sales,Application Admin,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000042,device,dev-0023,user-0023,taylor.roberts023@contoso.example,Operations,Security Operator,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000043,device,dev-0033,user-0033,taylor.nguyen033@contoso.example,Operations,Security Reader,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000044,device,dev-0040,user-0040,quinn.nguyen040@contoso.example,Sales,Security Operator,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000045,device,dev-0042,user-0042,jordan.garcia042@contoso.example,Engineering,Security Reader,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000046,device,dev-0043,user-0043,taylor.garcia043@contoso.example,Sales,User,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000047,resource,diagnosticsettings-119,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000048,resource,diagnosticsettings-231,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000049,resource,diagnosticsettings-251,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000050,resource,diagnosticsettings-564,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000051,resource,diagnosticsettings-613,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000052,resource,diagnosticsettings-614,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000053,resource,diagnosticsettings-631,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000054,resource,diagnosticsettings-649,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000055,resource,diagnosticsettings-742,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000056,resource,diagnosticsettings-767,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000057,resource,diagnosticsettings-797,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000058,resource,diagnosticsettings-835,,,,,30,medium,1,0,Track for governance review and validate compensating controls.
+RISK-000059,user,user-0005,user-0005,morgan.chen005@contoso.example,Security,User,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000060,user,user-0006,user-0006,riley.chen006@contoso.example,Sales,User,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000061,user,user-0014,user-0014,casey.patel014@contoso.example,Sales,User,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000062,user,user-0016,user-0016,riley.patel016@contoso.example,Security,User,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000063,user,user-0018,user-0018,avery.patel018@contoso.example,Finance,Application Admin,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000064,user,user-0021,user-0021,alex.roberts021@contoso.example,Sales,User,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000065,user,user-0022,user-0022,jordan.roberts022@contoso.example,Engineering,Security Reader,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000066,user,user-0025,user-0025,morgan.roberts025@contoso.example,Legal,User,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000067,user,user-0031,user-0031,alex.nguyen031@contoso.example,Finance,Application Admin,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000068,user,user-0032,user-0032,jordan.nguyen032@contoso.example,Security,Application Admin,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000069,user,user-0035,user-0035,morgan.nguyen035@contoso.example,Sales,Application Admin,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000070,user,user-0037,user-0037,jamie.nguyen037@contoso.example,Operations,User,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000071,user,user-0045,user-0045,morgan.garcia045@contoso.example,Security,Security Reader,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000072,user,user-0046,user-0046,riley.garcia046@contoso.example,Security,User,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000073,user,user-0047,user-0047,jamie.garcia047@contoso.example,Engineering,Security Reader,25,medium,0,1,Track for governance review and validate compensating controls.
+RISK-000074,device,dev-0007,user-0007,jamie.chen007@contoso.example,Engineering,Application Admin,20,low,1,0,Monitor as part of routine security operations.
+RISK-000075,device,dev-0010,user-0010,quinn.chen010@contoso.example,Legal,Security Reader,20,low,1,0,Monitor as part of routine security operations.
+RISK-000076,device,dev-0017,user-0017,jamie.patel017@contoso.example,Legal,User,20,low,1,0,Monitor as part of routine security operations.
+RISK-000077,device,dev-0029,user-0029,sam.roberts029@contoso.example,Operations,Security Reader,20,low,1,0,Monitor as part of routine security operations.
+RISK-000078,device,dev-0039,user-0039,sam.nguyen039@contoso.example,HR,Security Reader,20,low,1,0,Monitor as part of routine security operations.
+RISK-000079,device,dev-0044,user-0044,casey.garcia044@contoso.example,Security,User,20,low,1,0,Monitor as part of routine security operations.
+RISK-000080,device,dev-0049,user-0049,sam.garcia049@contoso.example,Engineering,Application Admin,20,low,1,0,Monitor as part of routine security operations.
+RISK-000081,device,dev-0050,user-0050,quinn.garcia050@contoso.example,Operations,Security Reader,20,low,1,0,Monitor as part of routine security operations.
+RISK-000082,resource,diagnosticsettings-prod,,,,,20,low,1,0,Monitor as part of routine security operations.
+RISK-000083,resource,roleassignments-240,,,,,20,low,1,0,Monitor as part of routine security operations.
+RISK-000084,resource,roleassignments-268,,,,,20,low,1,0,Monitor as part of routine security operations.
+RISK-000085,resource,roleassignments-277,,,,,20,low,1,0,Monitor as part of routine security operations.
+RISK-000086,resource,roleassignments-303,,,,,20,low,1,0,Monitor as part of routine security operations.
+RISK-000087,resource,roleassignments-504,,,,,20,low,1,0,Monitor as part of routine security operations.
+RISK-000088,resource,roleassignments-619,,,,,20,low,1,0,Monitor as part of routine security operations.
+RISK-000089,resource,roleassignments-935,,,,,20,low,1,0,Monitor as part of routine security operations.
+RISK-000090,user,user-0039,user-0039,sam.nguyen039@contoso.example,HR,Security Reader,20,low,1,0,Monitor as part of routine security operations.
