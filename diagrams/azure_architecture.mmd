@@ -1,0 +1,57 @@
+flowchart LR
+    subgraph Sources["Telemetry Sources"]
+        Entra["Microsoft Entra ID"]
+        Defender["Microsoft Defender XDR"]
+        Cloud["Azure Activity and Resource Logs"]
+        Apps["SaaS and Application Logs"]
+        Endpoint["Endpoint Signals"]
+    end
+
+    subgraph Ingestion["Ingestion and SIEM"]
+        EventHub["Event Hub"]
+        Monitor["Azure Monitor"]
+        LAW["Log Analytics Workspace"]
+        Sentinel["Microsoft Sentinel"]
+    end
+
+    subgraph Data["Data and Analytics"]
+        ADLS["Azure Data Lake Storage"]
+        ADX["Azure Data Explorer"]
+        Detection["Detection and Scoring Layer"]
+        Reports["Power BI and Sentinel Workbooks"]
+    end
+
+    subgraph AI["Future AI Investigation"]
+        Foundry["Azure AI Foundry"]
+        Search["Azure AI Search"]
+        AML["Azure Machine Learning"]
+    end
+
+    subgraph Governance["Governance and Secrets"]
+        KeyVault["Azure Key Vault"]
+        MI["Managed Identity"]
+        RBAC["RBAC and Azure Policy"]
+        Purview["Microsoft Purview"]
+    end
+
+    Entra --> Monitor
+    Defender --> Sentinel
+    Cloud --> EventHub
+    Apps --> EventHub
+    Endpoint --> Defender
+    EventHub --> LAW
+    Monitor --> LAW
+    LAW --> Sentinel
+    LAW --> ADLS
+    ADLS --> ADX
+    Sentinel --> Detection
+    ADX --> Detection
+    Detection --> Reports
+    Detection --> Foundry
+    ADLS --> Search
+    ADX --> AML
+    KeyVault -.protects.-> Foundry
+    MI -.authorizes.-> ADLS
+    RBAC -.governs.-> Sentinel
+    Purview -.classifies.-> ADLS
+

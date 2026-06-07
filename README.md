@@ -71,7 +71,7 @@ The implementation is intentionally local-first. It avoids paid services, real c
 | 8 | Monitoring and operational evidence | Complete |
 | 9 | GenAI security investigation copilot | Complete |
 | 10 | Dashboard and reporting exports | Complete |
-| 11 | Azure architecture and deployment design | Planned |
+| 11 | Azure architecture and deployment design | Complete |
 | 12 | Portfolio polish | Planned |
 
 ## Synthetic Telemetry Datasets
@@ -237,6 +237,31 @@ Dashboard outputs include:
 - `dashboards/README.md`
 
 The dashboard exports align to Power BI, SOC reporting, executive reporting, risk prioritisation, identity governance review, and operational evidence workflows.
+
+## Azure Architecture And Deployment Design
+
+Milestone 11 adds the production Azure architecture and deployment design layer. It documents how
+the local-first platform maps to Azure security services and adds infrastructure skeletons,
+environment strategy, security controls, cost considerations, and Mermaid diagrams for portfolio
+review.
+
+This milestone does not deploy Azure resources, connect to Azure, use Power BI APIs, store
+credentials, or claim that the platform is running in a real tenant. The Bicep and Terraform files
+are safe reference templates for architecture documentation only.
+
+Architecture and deployment artifacts include:
+
+- [`infra/README.md`](infra/README.md)
+- [`infra/azure_architecture.md`](infra/azure_architecture.md)
+- [`infra/deployment_plan.md`](infra/deployment_plan.md)
+- [`infra/security_controls.md`](infra/security_controls.md)
+- [`infra/cost_considerations.md`](infra/cost_considerations.md)
+- [`infra/environments.md`](infra/environments.md)
+- [`docs/production_architecture.md`](docs/production_architecture.md)
+- [`docs/security_operations_model.md`](docs/security_operations_model.md)
+- [`diagrams/azure_architecture.mmd`](diagrams/azure_architecture.mmd)
+- [`diagrams/data_flow.mmd`](diagrams/data_flow.mmd)
+- [`diagrams/security_operations_flow.mmd`](diagrams/security_operations_flow.mmd)
 
 ## Local Development
 

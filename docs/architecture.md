@@ -135,6 +135,35 @@ The full local flow is:
 
 These exports support Power BI import, Streamlit prototyping, SOC reporting, executive reporting, risk prioritisation, identity governance dashboards, and operational review without Power BI APIs or cloud resources.
 
+## Production Azure Architecture Mapping
+
+The production architecture mapping layer documents how the local-first platform could evolve into
+an Azure-hosted security intelligence architecture without deploying anything from this repository.
+It introduces reference infrastructure documentation, safe Bicep and Terraform skeletons, Mermaid
+diagrams, security controls, environment planning, and operational design.
+
+The complete conceptual flow is:
+
+1. Telemetry generation
+2. Ingestion
+3. Validation
+4. Threat detection
+5. Identity governance
+6. Risk scoring
+7. Monitoring and operational evidence
+8. Copilot investigation outputs
+9. Dashboard and reporting exports
+10. Production Azure architecture and deployment design
+
+In Azure, the telemetry and operations path maps to Microsoft Sentinel, Azure Monitor, Event Hub,
+Log Analytics, Microsoft Defender XDR, Microsoft Entra ID, Azure Data Lake Storage, Azure Data
+Explorer, Power BI, Azure Key Vault, Managed Identity, Azure Policy, and future Azure AI Foundry,
+Azure OpenAI, Azure AI Search, and Azure Machine Learning extension points.
+
+The infrastructure files under `infra/` are reference architecture templates for portfolio
+documentation only. They do not contain real tenant IDs, subscription IDs, secrets, or deployment
+automation for live Azure environments.
+
 ## Reporting Layer
 
 The reporting layer will produce investigation reports, compliance evidence, monitoring outputs, and dashboard-ready exports. These outputs will support both analyst workflows and executive communication.

@@ -1,0 +1,17 @@
+flowchart TD
+    Alert["Alert Generated"]
+    Triage["SOC Triage"]
+    IdentityCheck["Identity Check"]
+    Score["Risk Score"]
+    Brief["Investigation Brief"]
+    Remediate["Remediation"]
+    Evidence["Evidence and Reporting"]
+
+    Alert --> Triage
+    Triage --> IdentityCheck
+    IdentityCheck --> Score
+    Score --> Brief
+    Brief --> Remediate
+    Remediate --> Evidence
+    Evidence --> Triage
+

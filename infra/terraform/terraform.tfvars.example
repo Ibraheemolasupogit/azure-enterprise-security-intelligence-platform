@@ -1,0 +1,6 @@
+location              = "eastus"
+environment_name      = "dev"
+resource_prefix       = "aesi-reference"
+log_retention_days    = 30
+placeholder_tenant_id = "00000000-0000-0000-0000-000000000000"
+

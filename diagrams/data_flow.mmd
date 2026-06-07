@@ -1,0 +1,22 @@
+flowchart TD
+    Raw["Raw Telemetry"]
+    Ingest["Ingestion"]
+    Validate["Validation and Data Quality"]
+    Detect["Threat Detection"]
+    Identity["Identity Governance"]
+    Risk["Risk Scoring"]
+    Monitor["Monitoring Evidence"]
+    Copilot["Local Copilot Summaries"]
+    Dashboard["Dashboard Exports"]
+
+    Raw --> Ingest
+    Ingest --> Validate
+    Validate --> Detect
+    Validate --> Identity
+    Detect --> Risk
+    Identity --> Risk
+    Risk --> Monitor
+    Monitor --> Copilot
+    Copilot --> Dashboard
+    Monitor --> Dashboard
+
